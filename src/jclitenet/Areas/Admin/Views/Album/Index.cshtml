@@ -1,0 +1,60 @@
+﻿@model  IEnumerable<jclitenet.Models.AlbumModel>
+
+@{
+    ViewBag.Title = "Manage Albums";
+}
+
+<div class="content-toolbar"  >
+    <a href="@Url.Action("Create", "Album")">Add New</a>
+</div>
+<ul>
+    @{
+        foreach (var album in @Model)
+        {
+            <li class="thumbnail thumbnail-custom">
+                <div class="delete-button-container">
+
+                    <a id="@album.UID" href="javascript:void(0)">X</a>
+
+                    @*@Ajax.ActionLink("X", "Delete", "Album", new { id = album.UID },
+                        new AjaxOptions() { Confirm = "Delete?", HttpMethod = "Delete", OnSuccess = "success",  })*@
+
+                </div>
+                <a title="@album.Name" href="@Url.Action("Edit", "Album", new { id = album.UID })">
+                    @album.Name
+                </a>
+
+                <script>
+
+                    $('#@album.UID.ToString()').unbind("click").click(function () {
+                        
+                        var thisLink = $(this);
+
+                        if (!confirm('Delete?')) return false;
+
+                        $.ajax({
+                            url: '@Url.Action("Delete", "Album", new { id = album.UID })',
+                            type: 'POST',
+                            success: function (result) {
+                                thisLink.parent().parent().fadeOut('slow', function () {
+                                    $(this).remove();
+                                });
+                            }
+                        });
+
+                        return false;
+
+                    });
+                    
+                </script>
+                
+
+           </li>
+        }
+    }
+</ul>
+
+<script>
+
+
+</script>

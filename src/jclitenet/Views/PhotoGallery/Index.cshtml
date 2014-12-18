@@ -1,0 +1,25 @@
+﻿@model IEnumerable<jclitenet.Models.AlbumModel>
+@{
+    ViewBag.Title = "Photo Gallery";
+}
+
+<ul>
+    @{
+        foreach (var albumItem in Model)
+        {
+        <li class="float-left text-center">
+            <div class="thumbnail">
+                <a href="@Url.Action("Album", "PhotoGallery", new { id = albumItem.ID })" title="@albumItem.Name" >
+                    <div class="album-picture">
+                    </div>
+                </a>
+            </div>
+            <div class="text-spacer text-limit">
+                <a href="@Url.Action("Album", new { id = albumItem.ID })" title="@albumItem.Name">
+                    @albumItem.Name
+                </a>
+            </div>
+        </li>
+        }
+    }
+</ul>

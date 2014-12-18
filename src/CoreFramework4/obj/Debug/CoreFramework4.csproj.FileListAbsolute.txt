@@ -1,0 +1,11 @@
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\CoreFramework4.dll.config
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\CoreFramework4.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\CoreFramework4.pdb
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\EntityFramework.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\EntityFramework.SqlServer.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\Remotion.Data.Linq.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\StructureMap.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\EntityFramework.xml
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\bin\Debug\EntityFramework.SqlServer.xml
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\obj\Debug\CoreFramework4.dll
+D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\obj\Debug\CoreFramework4.pdb

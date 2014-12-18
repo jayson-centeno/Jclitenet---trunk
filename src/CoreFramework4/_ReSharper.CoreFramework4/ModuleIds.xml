@@ -1,0 +1,9 @@
+<Modules>
+  <Module PersistentId="168CBC76-B061-460F-8BA5-1B8D2127BAB2" ModuleId="CoreFramework4" />
+  <Module PersistentId="BE1DE55A-8A1F-401D-81A5-93B221B1FB39" ModuleId="ConsoleApplication1" />
+  <Module PersistentId="0A0A397F-1C79-41AA-BC09-AE2254A12A71" ModuleId="WebApplication1" />
+  <Module PersistentId="System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" ModuleId="System" />
+  <Module PersistentId="FluentNHibernate, Version=1.2.0.712, Culture=neutral, PublicKeyToken=8aa435e3cb308880" ModuleId="FluentNHibernate" />
+  <Module PersistentId="NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4" ModuleId="NHibernate" />
+  <Module PersistentId="ECB95835-54BA-4089-8810-6D1D2C446D34" ModuleId="jclitenet" />
+</Modules>

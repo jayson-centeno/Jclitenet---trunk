@@ -1,0 +1,21 @@
+﻿@model jclitenet.Models.FBShareModel
+
+<script src="https://connect.facebook.net/en_US/all.js" async=""></script>
+
+<a href="javascript:void(0)" id="fbShareLink_@Model.Id">
+   <i class="icon-facebook-sign icon-2x"></i>
+</a>
+
+<script>
+   
+    $('#fbShareLink_@Model.Id').unbind("click").click(function () {
+        var share = {
+            method: 'stream.share',
+            u: 'http://www.jclitenet.com/@Model.Link',
+            picture: 'http://www.jclitenet.com/Content/images/jclitenetlogo.png'
+        };
+
+        FB.ui(share);
+    });
+
+</script>

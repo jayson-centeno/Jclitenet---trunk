@@ -1,0 +1,86 @@
+﻿@model jclitenet.Areas.Admin.Models.AdminCommentModelHeader
+@{
+    ViewBag.Title = "Manage Comments";
+}
+
+<div class="text-spacer">
+
+    @using (Html.BeginForm("Index", "Comment", FormMethod.Get))
+    { 
+        @Html.DropDownListFor(m => m.SelectedTutorial, Model.Tutorials.Select(t => new SelectListItem()
+        {
+            Text = t.Name,
+            Value = t.ID.ToString()
+        }), new { onchange = "this.form.submit();" })
+    }
+
+</div>
+<br />
+@using (Html.BeginForm())
+{
+    <table style="width: 100%">
+        <tr>
+            <td>ID
+            </td>
+            <td>Name
+            </td>
+            <td>Comment
+            </td>
+            <td>Website
+            </td>
+            <td>Email
+            </td>
+            <td>Date Posted
+            </td>
+            <td>Ip Address
+            </td>
+            <td>Approved
+            </td>
+            <td>Delete?
+            </td>
+            <td>IsValidWebSite?
+            </td>
+        </tr>
+        @for (int i = 0; i < @Model.Comments.ToArray().Length; i++)
+        {
+            <tr>
+                <td>
+                    @Model.Comments.ToArray()[i].Id
+                    @Html.HiddenFor(m => m.Comments.ToArray()[i].Id)
+                    @Html.HiddenFor(m => m.Comments.ToArray()[i].Tutorial_ID)
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].AnonymousName
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].CommentText
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].Website
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].Email
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].DateCreated.Value.ToLongDateString() @Model.Comments.ToArray()[i].DateCreated.Value.ToLongTimeString()
+                </td>
+                <td>
+                    @Model.Comments.ToArray()[i].IpAddress
+                </td>
+                <td>
+                    @Html.CheckBoxFor(m => m.Comments.ToArray()[i].IsApproved)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(m => m.Comments.ToArray()[i].IsDelete)
+                </td>
+                <td>
+                    @Html.CheckBoxFor(m => m.Comments.ToArray()[i].IsValidWebSite)
+                </td>
+            </tr>
+        }
+
+    </table>     
+    <br />    
+    <input type="submit" value="Save" />
+    
+}

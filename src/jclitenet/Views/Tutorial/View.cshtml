@@ -1,0 +1,53 @@
+﻿    @using CoreFramework4;
+@model jclitenet.Models.TutorialModel
+
+@{
+    ViewBag.Title = @Model.Name;
+    ViewBag.ShareHtml = @Html.Partial("_ShareFBPartial", new jclitenet.Models.FBShareModel(Model.ID.ToString(), "Tutorial/View/" + @Model.Category.CategoryId + "/" + @Model.ID + "/" + Model.Name.ToSlug())).ToHtmlString();
+}
+
+<link href="@Url.Content("~/Content/syntaxhighlighter/shCore.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/syntaxhighlighter/shCoreEclipse.css")" rel="stylesheet" type="text/css" />
+@Content.Script("/syntaxhighlighter/shCore.js", Url)
+@Content.Script("md5.min.js", Url)
+
+@{
+    switch (Model.Category.CategoryId)
+    {
+        case (int)CoreFramework4.TutorialCategoryEnum.CS:
+            @Content.Script("/syntaxhighlighter/lan/shBrushCSharp.js", Url)
+            break;
+        case (int)CoreFramework4.TutorialCategoryEnum.jQuery:
+        case (int)CoreFramework4.TutorialCategoryEnum.JS:
+            @Content.Script("/syntaxhighlighter/lan/shBrushJScript.js", Url)
+            break;
+        case (int)CoreFramework4.TutorialCategoryEnum.CSS3:
+            @Content.Script("/syntaxhighlighter/lan/shBrushCss.js", Url)
+            break;
+        case (int)CoreFramework4.TutorialCategoryEnum.HTML:
+        case (int)CoreFramework4.TutorialCategoryEnum.HTML5:
+            @Content.Script("/syntaxhighlighter/lan/shBrushXml.js", Url)
+            break;
+        default:
+            break;
+    }
+    
+    <script>
+
+        $(document).ready(function () {
+            SyntaxHighlighter.all();
+            SyntaxHighlighter.defaults.toolbar = false;
+        });
+        
+    </script>
+
+    @Html.Raw(@Model.HtmlContent)
+
+    @Html.Partial("_CommentListPartial", @Model.Comments)
+    
+    @Html.Partial("_CommentFormPartial", new jclitenet.Models.CommentModel() { Tutorial_ID = @Model.ID, Title = @Model.Name })
+
+}
+
+
+

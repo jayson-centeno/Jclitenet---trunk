@@ -1,0 +1,348 @@
+﻿/*----------------------------------------------------------
+The base color for this template is #5c87b2. If you'd like
+to use a different color start by replacing all instances of
+#5c87b2 with your new color.
+----------------------------------------------------------*/
+html { }
+body { font: normal 11px/100% sans-serif, "lucida grande", tahoma, verdana, arial; margin: 0; padding: 0; color: #3A4046; background: #e1e0e0 url(images/bg.png) repeat-x; }
+
+input, textarea { color: inherit; text-decoration: inherit; transition: all 0.2s ease-in-out 0.1s; }
+textarea { width: 100%; height: 150px; line-height: 150%; }
+
+a:link { color: #1787D1; text-decoration: none; transition: color 0.2s ease-in-out 0.1s; }
+a:visited { color: #3A4046; }
+a:hover { text-decoration: none; color: #1787D1; }
+a:active { color: #1787D1; }
+p { line-height: 1.6em; margin: 0px 0px 10px 0px; font-size: 1.3em; text-shadow: 1px 1px 1px #fff; }
+header, footer, nav, section { display: block; }
+b { font-weight: bold; }
+* { margin: 0; padding: 0; }
+
+/* TABLE
+----------------------------------------------------------*/
+table { border-collapse: collapse; }
+th, td { padding: 3px; vertical-align: top; }s
+
+/* HEADINGS   
+----------------------------------------------------------*/
+h1, h2, h3, h4, h5, h6 { font-size: 1.5em; font-family: "Book Antiqua", Palatino, serif; }
+h1 { font-size: 2em; padding-bottom: 0; margin-bottom: 0; }
+h2 { padding: 0 0 10px 0; line-height: 25px; }
+h3 { font-size: 1.2em; padding: 0 0 10px 0; }
+h4 { font-size: 1.1em; }
+h5, h6 { font-size: 1em; }
+
+/* PRIMARY LAYOUT ELEMENTS   
+----------------------------------------------------------*/
+
+input[type="select"] { border: 1px solid #ccc; padding: 2px; font-size: 1.2em; color: #444; }
+input[type="text"], input[type="password"], textarea { padding: 5px; border: solid 1px #E5E5E5; outline: 0; width: 200px; background: #FFFFFF; border-radius: 3px; -webkit-border-radius: 3px; -moz-border-radius: 3px; }
+textarea { width: 100% }
+.min-textarea { width: 95%; height: 50px; line-height: 150%; }
+input[type="password"]:hover, input[type="text"]:hover, input:focus, textarea:focus, textarea:hover {
+-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(82,168,236,.6);
+-moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(82,168,236,.6);
+box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(82,168,236,.6);
+border-color: rgba(82,168,236,.8);
+outline: 0;
+outline: thin dotted \9;
+}
+
+button, input[type="submit"], input[type="button"] { font-size: 12px; padding: 5px; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; cursor: pointer; border: solid 1px #aaa; }
+button:hover, input[type="submit"]:hover, input[type="button"]:hover { background-color: #ccc; }
+
+#breadCrumbs a, #breadCrumbs a:visited { color: #ff8c22; }
+
+/* you can specify a greater or lesser percentage for the 
+page width. Or, you can specify an exact pixel width. */
+.page { margin-left: auto; margin-right: auto; position: relative; z-index: 9999; }
+header, #header { position: relative; margin-bottom: 20px; color: #000; padding: 0; height: 115px; background: url(images/line.png) repeat-x bottom; }
+.headerText h1 { font-weight: bold; padding: 5px 0; margin: 0; color: #fff; border: none; }
+#main { padding: 10px 10px 25px 10px; }
+h2.title { text-shadow: 1px 1px 1px #efefef; }
+.text-fade { color: #A4B0BC; }
+.center-layout { width: 65%; margin: 0px auto 0px auto; }
+.text-shadow { text-shadow: 1px 1px 1px #ccc; }
+
+.top-container { width: 100%; height: 35px; border-bottom: solid 1px #707070; }
+.top-container .content { position: relative; padding-top: 14px; }
+.top-container .content a:visited { color: #d0ced0; }
+#top-container-about a:hover { color: #ECEAE5; }
+#top-container-about a { color: #999393; text-shadow: 1px 1px 1px #111; }
+#top-container-about i { margin-right:3px; }
+
+#content, #content-admin { display: inline-block; margin: 10px 5px 0px 0px; padding: 10px 10px 30px; min-height: 300px; }
+#content-admin { width: 97%; }
+
+#contentBody { width: 100%; float: left; padding-top:10px }
+div.box_shadow { -moz-box-shadow: 0 15px 10px -15px #ccc; -webkit-box-shadow: 0 15px 10px -15px #ccc; box-shadow: 0 25px 10px -15px #ccc; }
+.box_shadow-mild { -moz-box-shadow: 0 15px 10px -15px #777; -webkit-box-shadow: 0 15px 10px -15px #777; box-shadow: 0 15px 10px -15px #777; }
+.box-border { -moz-box-shadow: 0 0 20px 0px #bbb; -webkit-box-shadow: 0 0 20px 0px #bbb; box-shadow: 0 0 20px 0px #bbb; }
+.input-shadow { -moz-box-shadow: 0px 0px 5px 1px #a4b0bc; -webkit-box-shadow: 0px 0px 5px 1px #a4b0bc; box-shadow: 0px 0px 5px 1px #a4b0bc; border: solid 1px #ddd; }
+.curve-edge { border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; }
+.border { border: 1px solid #ccc; }
+.float-left { float: left; }
+.float-right { float: right; }
+.box { background-color: #fff; border-radius: 5px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border: 1px solid #ddd; -moz-box-shadow: 0 0 1px 1px #efefef; -webkit-box-shadow: 0 0 1px 1px #efefef; box-shadow: 0 0 1px 1px #efefef; border-bottom: 1px solid #ccc; }
+
+footer, #footer, .top-container { background-color: #242424; }
+
+footer, #footer { padding-top: 10px; margin: 40px auto 0px auto; height: 110px; position: relative; width: 100%; border-top: 1px solid #fff; }
+#copy-rights { padding: 10px 0px; float: right; text-align: right; color: #7c6161; width: 50%; }
+#powered-by { padding: 10px 0px; float: right; }
+
+.footerContent { padding: 20px; position: relative; margin: auto; text-align: left; color: #999393; text-shadow: 1px 1px 1px #000; }
+ul.footerLinkLayout { list-style-type: none; position: relative; width: 50%; float: left; }
+ul.footerLinkLayout li { display: inline; width: 100%; float: left; }
+ul.footerLinkLayout li a { font-size: 1.5em; }
+.footerContent .copyright { float: left; }
+.footerContent .copyright a:visited { color:#1787D1 }
+
+#side_menu { padding: 10px; display: inline-block; vertical-align: top; margin-top: 10px; font-weight: normal; }
+.archive-date { color: #a4b0bc; font-size: 8pt; }
+.post-title { font-size: 8pt; color: #4B89B0; font-weight: bold; max-width:100px; }
+#side_menu .archive-date { line-height: 20px; }
+#side_menu .anon-name { color: #FF8C22; font-style:italic }
+#side_menu .parent-title { font-weight:normal; line-height:18px; font-style:italic }
+
+#title-container { width: 100%; padding: 10px 0px; background: url("images/line.png") repeat-x scroll center bottom transparent; }
+
+#searchContainer { padding-left: 6px; position: absolute; width: 230px; left: 75%; top: 25px; }
+#searchContainer input[type="text"] { width: 174px; padding-left: 25px; border-radius: 10px; -webkit-border-radius: 10px; -moz-border-radius: 10px; }
+.seachIconButton { background: url(images/jclitenet-icons.png) no-repeat scroll -26px -2px transparent; width: 17px; height: 17px; }
+#searchContainer .seachIconButton { position: absolute; top: 6px; left: 12px; cursor:pointer; }
+
+#title-container .title { float:left; width:80%; }
+#title-container .title h1 { line-height:30px; }
+.menu-title { width: 100%; height: 36px; background: url(images/line.png) repeat-x bottom; }
+
+.menu-album-icon, .menu-tutorial-icon { float: left; margin: 4px 0px 0px 4px; }
+.menu-album-icon { width: 25px; height: 25px; }
+.menu-tutorial-icon { width: 20px; height: 20px; margin-top: 6px; }
+
+.menu-title h2 { font-size: 1.2em; text-shadow: 1px 1px 1px #efefef; line-height: 35px; margin-left: 30px; }
+.menu-item { margin-bottom: 10px; background-color: none; }
+.menu-item ul { padding-bottom: 10px; }
+.menu-item ul li { background-color: #efefef; border-bottom: dashed 1px #bbb; }
+.menu-item ul li:hover { background-color: #eee; }
+.menu-item ul li a { padding: 10px 0 5px 0; text-decoration: none; display: inline-block; width: 100%; height: 100%; }
+.menu-item ul li a span { padding-left: 10px; }
+.menu-item ul li a:hover { text-decoration: none; background-color: #fff; }
+.menu-item ul li a:visited { text-decoration: none; }
+
+/* TAB MENU   
+----------------------------------------------------------*/
+#menuwrapper { margin-top: 10px; }
+ul#menu { float: right; margin-top: 65px; }
+ul#menu li { display: inline; list-style: none; padding: 0px 10px 0px 10px; position: relative; }
+ul#menu li a { font-size: 18px; color: #777; font-family: Constantia; text-shadow: 1px 1px 1px #ccc; }
+ul#menu li a:visited { color: #777; }
+ul#menu li a:hover, ul#menu li a:active, ul#menu li a:focus { text-decoration: none; color: #2d2d2a; }
+ul#menu li.current a { color: #2d2d2a; }
+ul#menu li.current { }
+#menu .home-icon { display:inline-block }
+.home-icon { background: url(images/jclitenet-icons.png) no-repeat scroll -2px -2px transparent; width: 22px; height: 22px; }
+html #submenu { width: 305px; border: solid 1px #aaa; position: absolute; padding: 10px; z-index: 1000; min-height: 100px; cursor: pointer; background-color: #ddd; left:7%; top:20px; }
+#submenu ul { width: 100%; position:relative !important; }
+#submenu ul li { padding: 10px !important; border-bottom:none !important; width:auto !important; }
+.submenu-tutorial-icon { background: url("images/jclitenet-icons.png") no-repeat scroll -45px -2px transparent; width: 22px; height: 22px; float: left; margin: 1px 0px 0px 4px; }
+#submenu ul li a { font-size: 1.1em; text-shadow: 1px 1px 1px #ccc; font-size: 1.1em; color:#1787D1; text-decoration:none; }
+#submenu ul li a:hover { text-decoration: underline; }
+#submenu .menu-title { padding-bottom: 10px; }
+#submenu .menu-title h2 { font-size: 1.7em; font-weight: normal; text-shadow: 1px 1px 1px #fff; }
+.submenu { position:relative; }
+
+#menu ul { display: none; position: absolute; display: inline-table; }
+#menu ul a:hover { }
+#menu ul li { width: 100px; float: left; border-top: none; padding: 7px 0px; border-bottom: dashed 1px #ccc; position: relative; }
+#menu ul li:hover { border-bottom: dashed 1px #fff; }
+#menu ul ul { display: none; position: absolute; }
+
+/* MISC  
+----------------------------------------------------------*/
+.clear { clear: both; }
+.error { color: Red; }
+.hidden { display: none; }
+#advertisement { position: relative; height:100px; width: 100%; overflow: hidden; border-radius: 4px 4px 0px 0px; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; text-align:center; }
+#logo { display: block; text-align: left; width: 188px; height: 72px; background: url(images/jclitenetlogo.png) transparent; background-repeat: no-repeat; margin: 15px 0px 10px 5%; float: left; }
+#logindisplay, #login-content { -moz-box-shadow: 0px 0px 5px 0px #000; -webkit-box-shadow: 0px 0px 5px 0px #000; box-shadow: 0px 0px 5px 0px #000; }
+#logindisplay { height: 20px; display: block; background-color:#000; text-align: right; color: White; border: solid 1px #747373; z-index: 9999; cursor: pointer; border-radius: 0 0 10px 10px; -webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; z-index: 999999; border-top: none; margin-top: 2px; position: absolute; }
+#login-content { position: absolute; background-color: #000; border: none; top: 0; z-index: 9999999; width: 100%; border-bottom: solid 1px #747373; margin-left: auto; margin-right: auto; padding-bottom: 2px; background: #000 url(images/login-content-bg.png) repeat-x; }
+.user-icon { background: transparent url(images/user_icon_hover.png) no-repeat; width: 15px; height: 15px; float: left; margin-top: -1px; }
+
+.logon-welcome-container { padding: 3px 5px 0px 10px; text-align: left; }
+.logon-welcome-container span { float: left; margin-left: 5px; }
+.logon-welcome-container a { float: right; }
+.logon-welcome-container:hover { color: #ff8c22; }
+.logon-welcome-container:hover .user-icon { background: transparent url(images/user_icon.png) no-repeat; }
+.logon-welcome-container i { margin-right:3px; }
+
+.logindisplay-wrapper { width: 100%; height: 100px; position: relative; display: none; }
+.logon-fieldset { border: none; position: absolute; left: 30%; top: 5%; }
+
+/* Styles for validation helpers
+-----------------------------------------------------------*/
+
+.field-validation-error, .validation-summary-errors, .validation-text { font-size: 11pt; }
+.field-validation-error { float: left; color: #ff6a00; text-align: left; }
+.field-validation-valid { display: none; }
+.input-validation-error { border: 1px solid #ff0000; background-color: #ffeeee; }
+.validation-summary-errors { font-weight: bold; color: #f00; padding: 5px; border: solid 1px #ff8c22; }
+.validation-summary-valid { display: none; }
+.validation-text { text-align: left; }
+.validation-summary-errors ul li { text-align: left; padding: 5px; }
+
+
+/* Styles for editor and display helpers
+----------------------------------------------------------*/
+.display-label, .editor-label { margin: 1em 0 0 0; }
+.display-field, .editor-field { margin: 0.5em 0 0 0; }
+.text-box { width: 30em; }
+.text-box.multi-line { height: 6.5em; }
+.tri-state { width: 6em; }
+
+.text-center { text-align: center; }
+.text-spacer { padding: 5px; }
+.text-limit { width: 90px; }
+.text-highlight { background-color: #fff; }
+.margin-right-space { margin-right: 10px; }
+
+#progress { display: none; }
+.contentwrapper { width: 100%; background-color: #eee; border-radius: 0px 0px 4px 4px; -webkit-border-radius: 0px 0px 4px 4px; -moz-border-radius: 0px 0px 4px 4px; }
+.heading { position: absolute; top: 35px; padding: 12px; left: 20px; }
+.heading h1 { color: #FFF; font-weight: bold; margin: 0; font-size: 40px; text-shadow: -1px 1px 1px #555555; }
+.topinfo { position: absolute; right: 0; top: -120px; height: 50px; width: 32%; opacity: .5; background-color: #222222; border-radius: 0 4px 0 20px; -webkit-border-radius: 0 4px 0 20px; -moz-border-radius: 0 4px 0 20px; padding: 15px; -moz-box-shadow: 0 0 5px 1px #A4B0BC inset; -webkit-box-shadow: 0 0 5px 1px #A4B0BC inset; box-shadow: 0 0 5px 1px #A4B0BC inset; }
+.topinfo p { color: #fff; font-weight: bold; text-transform: capitalize; font-size: 12px; }
+.topinfo .more { line-height: 20px; }
+img.bg { left: 0; position: absolute; top: 0; }
+
+#radio_menu { position: absolute; z-index: 100; bottom: 13px; left: 87%; cursor: pointer; top: 84px; }
+#radio_menu li { padding: 0px 10px; font-weight: bold; text-decoration: none; list-style: none; display: inline; opacity: .7; background-color: #222222; }
+#radio_menu li span { color: #fff; font-weight: bold; }
+
+code { background-color: #F9F9F9; }
+pre { border: dashed 1px #000; color: black; line-height: 1.1em; padding: 1em; background-color: #F9F9F9; }
+
+.contentBox { margin: 0 0 25px; }
+.postBoxItem { width: 489px; float: left; border: 1px solid #ccc; border-radius: 16px 16px 16px 16px; padding: 23px; -webkit-border-radius: 16px 16px 16px 16px; -moz-border-radius: 16px 16px 16px 16px; }
+.contentBox h1 a { border: medium none; color: #3A4046; float: left; font: 25px/32px Verdana, Georgia, Arial,Tahoma; margin: 0 0 10px; padding: 0; text-decoration: none; text-shadow: 1px 1px #bbb; }
+.pictureBox { margin: 0; position: relative; padding: 5px; }
+.entryBox { float: left; margin: 0 0 0 20px; }
+.postTitle { float: left; width: 350px; }
+.postContent p { line-height: 180%; margin: 5px 0; padding: 5px 0; }
+
+.thumbnail { border: solid 1px #999; padding: 3px; margin: 5px; background: #ccc; float: left; cursor: pointer; }
+.thumbnail-custom { width: 100px; height: 100px; text-align: center; line-height: 95px; position: relative; }
+.thumbnail:hover { border: solid 1px #555; background-color: #aaa; }
+.album-picture { background: url("images/jclitenet-icons.png") no-repeat scroll -93px -30px #fff; height: 80px; width: 80px; border: solid 1px #999; }
+.delete-button-container { left: 95px; position: absolute; top: -40px; }
+.delete-button-container a { text-decoration: none; }
+
+/* jQuery lightBox plugin - Gallery style */
+#gallery ul { list-style: none; }
+#gallery ul li { display: inline; margin: 5px; color: #fff; float: left; }
+#gallery ul img { border: 5px solid #999; }
+#gallery ul a:hover img { border: 5px solid #555; color: #fff; }
+#gallery ul a:hover { color: #fff; }
+
+#inspiration { position: absolute; top: 70px; left: 30px; height: 20px; }
+#inspiration a { color: #1787D1; text-decoration: overline; font-size: 1.2em; font-style: italic; }
+
+.line-item { border-bottom: 1px dashed #ccc; padding: 20px; background-color: #eee; }
+.width100 { width: 100%; }
+.content-toolbar { padding: 10px 0px; }
+.syntax-textarea { width: 100%; height: 500px; }
+
+.comment-section { margin-top: 15px; padding: 20px; font-weight: normal; }
+.comment-section h1 { margin-left: 5px; margin-bottom: 10px; text-shadow: 1px 1px 1px #efefef; }
+.comment-item { margin: 10px 10px 0px 5px; padding: 10px 0 0; width: 100%; float: left; border-top: 1px solid #ECEAE5; }
+.comment-item .avatar { float: left; }
+.comment-item .user-comment-wrapper { float: left; padding-left: 10px; font-size: 10pt; width: 90%; }
+.comment-item .user-says { color: #F78201; }
+.comment-item .comment-date { padding: 10px 0px; width: 100%; }
+.comment-item .comment-date { color: #9a9a9a; }
+.comment-item .user-comment { line-height: 18px; letter-spacing: 1px; }
+.avatar { width: 35px; height: 35px; }
+.nopic-icon { background: url(images/jclitenet-icons.png) no-repeat scroll -2px -30px transparent; width: 35px; height: 35px; }
+.user-photo { background: url(images/jclitenet-icons.png) no-repeat scroll -40px -30px transparent; width: 50px; height: 50px; }
+.comment-section .user-photo { margin-left: 5px; float: left; margin-top: 5px; }
+.comment-section #response-text { padding: 10px; font-size: 11pt; color: #ff6a00; }
+.field-wrapper { width: 100%; }
+.field-wrapper, .field-wrapper .inputs { float: left; }
+.recaptcha-layout { width:100% }
+.syntaxhighlighter .code, .syntaxhighlighter .gutter { font-size: 1.3em !important; }
+.share-container { margin-top:5px; }
+.share-container .fbImage { background: url(images/jclitenet-icons.png) no-repeat scroll -121px -2px transparent; width:59px; height:23px; }
+.tutorial-list-container li { margin-bottom:10px; padding: 20px; overflow: hidden; background-color: #eee; }
+
+.calendar-wrapper { width:18%; text-align:center; float:left; position:relative; }
+.calendar { margin-bottom:5px; }
+.calendar i { margin-bottom:5px; color:#999; }
+.calendar-date span { font-weight:bold; color:#888; text-shadow: 1px 1px 1px #fff; }
+.links-wrapper { width:82%; float:left }
+.links-wrapper h2.title { font-weight:bold; font-size:1.7em; font-style:oblique }
+.links-wrapper h2.title a i { padding:5px; }
+.links-wrapper .share-container { margin-top:0px }
+.links-wrapper h2 a, .links-wrapper h2 a:visited { color:#4B89B0 }
+.links-wrapper a:hover { color:#aaa; }
+.links-wrapper .html-content { max-height: 150px; overflow:hidden; margin-bottom:20px; margin-top:10px; font-size:.9em; font-weight:normal; }
+.links-wrapper .read-more { float:right; }
+.links-wrapper .read-more a { color: #ff8c22; font-size:1em; }
+.share-container a { color:#aaa; }
+.share-container a:hover { color:#ff6a00; }
+.menu-ads { overflow:hidden; }
+.paging-button { width:100%; height: 24px; text-align:center; background-color:#ccc; line-height:30px; cursor:pointer }
+.paging-button:hover { background-color:#fff; }
+
+/* Large screens ----------- */
+@media only screen and (min-width : 1824px) {
+    #content { width: 71% !important;  }
+    #side_menu { width:24.7% !important }
+    #logindisplay { width:233px; right:20%; }
+}
+
+@media only screen and (min-width : 1224px) {
+    #content { width: 71% }
+    #side_menu { width:24% }
+    #logindisplay { width:233px; right:20%; }
+}
+
+@media only screen and (min-width : 1024px) {
+    #content { width: 71% }
+    #side_menu { width:23.4%}
+    #logindisplay { width:233px; right:20%; }
+}
+
+@media only screen and (min-width : 800px) {
+    #content { width: 71% }
+    #side_menu { width:23.2% }
+    #logindisplay { width:233px; right:20%; }
+}
+
+@media only screen and (min-width : 700px) {
+    #content { width: 71% }
+    #side_menu { width:23.1% }
+    #logindisplay { width:233px; right:20%; }
+}
+
+@media only screen and (min-width : 600px) {
+    #content { width: 96% }
+    #side_menu { width:96% }
+    #logindisplay { width:233px; right:20%; }
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+    #content { width: 100%; }
+    #side_menu { width: 100%; }
+    #menu, #advertisement { display:block }
+    #logindisplay { width:233px; right:20%; }
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #content { width: 100%; }
+    #side_menu { width: 100%; }
+    #logindisplay { width:100%; right:auto; }
+    #menu, #advertisement { display:none }
+}

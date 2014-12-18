@@ -1,0 +1,27 @@
+﻿@model IEnumerable<CoreFramework4.Model.Blog>
+@foreach (var item in @Model)
+{
+    <div class="contentBox">
+        <div class="postBoxItem">
+            <div class="pictureBox float-left">
+                <img alt="" width="106" height="100" src="/Content/images/sample.jpg" />
+            </div>
+            <div class="entryBox">
+                <div class="postTitle">
+                    <h1>
+                        @Html.ActionLink(item.Name, "DisplayBlog", "Blog", new { id = item.Id }, null)
+                    </h1>
+                </div>
+                <div class="postContent">
+                    <p>
+                        @item.Content
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="box_shadow">
+        </div>
+    </div>
+}

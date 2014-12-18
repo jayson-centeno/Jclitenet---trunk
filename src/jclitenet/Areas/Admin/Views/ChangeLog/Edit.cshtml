@@ -1,0 +1,26 @@
+﻿@model jclitenet.Models.ChangeLogModel
+           
+@{
+    ViewBag.Title = "Edit Change Log";
+}
+
+@using (Html.BeginForm("Edit", "ChangeLog"))
+{ 
+     <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description, new { placeholder = "Description" })
+    </div>
+    
+    <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.DateCreated)
+        @Html.TextBoxFor(m => m.DateCreated, new { id = "dateCreated", placeholder = "Date" })
+    </div>
+    
+     <script>
+         $(function () {
+             $("#dateCreated").datepicker();
+         });
+    </script>
+    
+    <input type="submit" value="Save" />
+}

@@ -1,0 +1,67 @@
+﻿@using CoreFramework4;
+@model IEnumerable<jclitenet.Areas.Admin.Models.SiteConfigurationModel>
+
+@{
+    ViewBag.Title = "Configurations";
+}
+<div class="content-toolbar"  >
+    <a href="@Url.Action("Create", "SiteConfiguration")">Add New</a>
+</div>
+
+@using (Html.BeginForm())
+{
+    <table style="width: 100%; vertical-align:top;">
+        <tr>
+            <td>ID
+            </td>
+            <td>Name
+            </td>
+            <td>ConfigValue
+            </td>
+            <td>IsDeleted
+            </td>
+            <td>IsHtml
+            </td>
+            <td>IsEdited
+            </td>
+        </tr>
+        @for (int i = 0; i < @Model.ToArray().Length; i++)
+        {
+        <tr>
+            <td>
+                @Model.ToArray()[i].Id
+                @Html.HiddenFor(m => m.ToArray()[i].Id)
+            </td>
+            <td style="width:20%">
+                @Html.TextBoxFor(m => m.ToArray()[i].Name)
+            </td>
+            <td style="width:60%">
+                @Html.TextAreaFor(m => m.ToArray()[i].ConfigValue, new { Class="min-textarea", editid="edit_" + i })
+            </td>
+            <td style="width:10%">
+                @Html.CheckBoxFor(m => m.ToArray()[i].IsDeleted)
+            </td>
+            <td style="width:10%">
+                @Html.CheckBoxFor(m => m.ToArray()[i].IsHtml)
+            </td>
+            <td style="width:10%">
+                @Html.CheckBoxFor(m => m.ToArray()[i].IsEdited, new { id="edit_" + i })
+            </td>
+        </tr>
+        }
+
+    </table>     
+    <br />    
+    <input type="submit" value="Save" />
+    
+    <script >
+
+        $(function () {
+            $("textarea[editid]").unbind('keypress').keypress(function (evt) {
+                $("#" + $(this).attr('editid')).attr("checked", "checked");
+            });
+        });
+
+    </script>
+    
+}

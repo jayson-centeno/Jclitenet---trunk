@@ -1,0 +1,26 @@
+﻿@model IEnumerable<jclitenet.Models.GamesModel>
+
+@using CoreFramework4;
+@{
+    ViewBag.Title = "Games";
+}
+
+<ul class="box">
+
+    @foreach (var gameItem in Model)
+    {
+        <li class="line-item">
+            <h2><a href="@Url.Action("Display", "Games", new { id = @gameItem.ID, name = @gameItem.Name.ToSlug() })">@gameItem.Name</a></h2>
+            <div class="float-left width100">
+                <div class="float-left">
+                    <span></span>
+                </div>
+                <div class="float-right">
+                    Comments: 0
+                </div>
+            </div>
+        </li>    
+    }
+
+
+</ul>

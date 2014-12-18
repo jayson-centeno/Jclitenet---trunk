@@ -1,0 +1,15 @@
+﻿@using CoreFramework4
+
+@model IEnumerable<jclitenet.Models.SideMenuModelItem>
+
+<ul class="side-menu">
+    @foreach (var item in @Model)
+    {
+        <li>
+            <a href="@item.Href">
+                <span class="post-title">@item.Title</span><br />
+                <span class="archive-date">@item.Posted.ToLongDateString()</span>
+            </a>
+        </li>    
+    }
+</ul>

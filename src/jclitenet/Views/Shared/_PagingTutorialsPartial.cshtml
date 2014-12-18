@@ -1,0 +1,28 @@
+﻿@model IEnumerable<jclitenet.Models.SideMenuModelItem>
+
+@foreach (var item in @Model)
+{
+    <li class="box box_shadow">
+        <div class="calendar-wrapper">
+            <div class="calendar">
+                <i class="icon-calendar icon-4x"></i>
+            </div>
+            <div class="calendar-date">
+                <span>@String.Format("{0:dd MMMM yy}", @item.Posted.Date)</span>
+            </div>
+        </div>
+        <div class="links-wrapper">
+            <div class="share-container float-right">
+                <a href="@item.Href"><i class="icon-comments icon-2x"></i></a>
+                @Html.Raw(@Html.Partial("_ShareFBPartial", new jclitenet.Models.FBShareModel() { Link = @item.Href, Id = item.ID.ToString() }).ToHtmlString())
+            </div>
+            <h2 class="title"><a href="@item.Href"><i class="icon-quote-left"></i>@item.Title<i class="icon-quote-right"></i></a></h2>
+            <div class="html-content">
+                @Html.Raw(@item.Content)
+            </div>
+            <div class="read-more">
+                <a href="@item.Href"><i></i>Read More</a>
+            </div>
+        </div>
+    </li>
+}

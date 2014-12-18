@@ -1,0 +1,146 @@
+﻿@using CoreFramework4
+@using jclitenet.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_HeaderPartial")
+</head>
+<body style="overflow-x: hidden;">
+    @*<div id="inspiration">
+    </div>*@
+    <div id="login-content">
+        @Html.Partial("_LogOnPartial", new LogOnModel())
+        <div id="logindisplay">
+            <div class="logon-welcome-container">
+                <span><i class="icon-user"></i>Welcome @User.ToLogonInfo().FullName </span>
+            </div>
+        </div>
+    </div>
+    <div class="top-container clear">
+        <div class="content center-layout">
+            <div id="top-container-about" class="float-left">
+                <a href="@Url.Action("About", "Home")" class="margin-right-space">
+                    <i class="icon-smile"></i>About Me</a>
+                <a href="@Url.Action("SiteInfo", "Home")" class="margin-right-space">
+                    <i class="icon-info-sign"></i>Site Info</a>
+                <a href="@Url.Action("Contact", "Home")" class="margin-right-space">
+                    <i class="icon-book"></i>Contact Me</a>
+                <a href="@Url.Action("SiteLog", "Home")" class="margin-right-space">
+                    <i class="icon-edit"></i>Site Logs
+                </a>
+                <a href="@Url.Action("MyPortfolio", "Home")" >
+                    <i class="icon-folder-open"></i>My Portfolio
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="page center-layout">
+        <div id="header">
+            <a href="@Url.Action("index", "Home")">
+                <div id="logo">
+                </div>
+            </a>
+            @Html.Partial("_SearchPartial")
+            <ul id="menu">
+                <li class="current">
+                    <div class="home-icon"></div>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li><a href="@Url.Action("Index", "Tutorial", new { type = 1 })" class="submenu">Development</a>
+                    <div id="submenu" class="curve-edge">
+                        <div id="progress">
+                            <i class="icon-spinner icon-spin icon-3x"></i>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="@Url.Action("Index", "Games")">Games</a></li>
+                <li><a href="@Url.Action("Index", "Blog")">Blogs</a> </li>
+                <li><a href="@Url.Action("Index", "PhotoGallery")">Photo Gallery</a></li>
+            </ul>
+        </div>
+        @Html.Partial("_AdvertisementPartial")
+        <div class="contentwrapper box-border">
+            <div id="main">
+                <div id="content" class="box box_shadow">
+                    <div id="breadCrumbs">
+                        @Html.MvcSiteMap().SiteMapPath()
+                    </div>
+                    <div id="title-container" class="float-left">
+                        <div class="title">
+                            <h1>@ViewBag.Title</h1>
+                        </div>
+                        <div class="share-container float-right">
+                            @Html.Raw(ViewBag.ShareHtml)
+                        </div>
+                    </div>
+                    <div id="contentBody">
+                        @RenderBody()
+                    </div>
+                </div>
+                <div id="side_menu" class="box box_shadow">
+                    <div class="menu-item box menu-ads">
+                        @Html.Raw((string)CoreFramework4.SiteConfigTool.GetValue<string>("ads_1").ToHtmlDecode())
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-tutorial-icon">
+                                <i class="icon-book icon-2x"></i>
+                            </div>
+                            <h2>Tutorial Updates</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsPartial", @ViewBag.LatestTutorials as IEnumerable<SideMenuModelItem>)
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-album-icon">
+                                <i class="icon-comments icon-2x"></i>
+                            </div>
+                            <h2>Recent Comments</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsCommentPartial", @ViewBag.LatestComments as IEnumerable<SideMenuModelItem>)
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-album-icon">
+                                <i class="icon-camera icon-2x"></i>
+                            </div>
+                            <h2>Latest Albums</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsPartial", @ViewBag.LatestAlbums as IEnumerable<SideMenuModelItem>)
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-album-icon">
+                            </div>
+                            <h2>Recent Posts</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsPartial", @ViewBag.RecentPostItems as IEnumerable<SideMenuModelItem>)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_FooterPartial")
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+        function initDevelopmentSubMenu() {
+            if ($('#submenu .menu-title').length == 0) {
+
+                $("#progress").show(); 
+
+                showAjaxContent('@Url.Action("PartialTuTorialCategories", "Partial")', function (result) {
+
+                    $('#submenu').html(result);
+                    $("#progress").hide();
+
+                });
+            }
+        }
+    </script>
+
+</body>
+</html>

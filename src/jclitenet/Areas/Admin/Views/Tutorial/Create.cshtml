@@ -1,0 +1,39 @@
+﻿@model jclitenet.Models.TutorialModel
+
+@{
+    ViewBag.Title = "Create New Tutorial";
+}
+
+@*@Content.Script("/tinymce/tinymce.min.js", Url)*@
+
+@using (Html.BeginForm("Create", "Tutorial"))
+{ 
+     <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    </div>
+    
+    <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.HtmlContent)
+        @Html.TextAreaFor(m => m.HtmlContent, new { id = "htmlContentId", placeholder = "Html Content", @class = "syntax-textarea" })
+    </div>
+    
+    @Html.HiddenFor(m => m.Category.CategoryId)
+    
+    <input type="submit" id="submitSave" value="Save" />
+}
+
+@*<script>
+    
+    tinyMCE.init({
+        mode: 'exact',
+        elements: 'htmlContentId',
+        theme: 'modern'
+    });
+
+    $('#submitSave').click(function () {
+        tinyMCE.triggerSave();
+    });
+
+</script>*@
+

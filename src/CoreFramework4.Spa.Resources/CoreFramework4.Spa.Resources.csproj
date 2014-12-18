@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{55982239-9047-4178-B958-853BAB45B9CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CoreFramework4.Spa.Resources</RootNamespace>
+    <AssemblyName>CoreFramework4.Spa.Resources</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\base.css" />
+    <Content Include="assets\css\foundation.min.css" />
+    <Content Include="assets\css\normalize.css" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\appRun.js" />
+    <Content Include="assets\js\constants\app-constants.js" />
+    <Content Include="assets\js\controllers\home-controller.js" />
+    <Content Include="assets\js\controllers\login-controller.js" />
+    <Content Include="assets\js\controllers\tutorial-controller.js" />
+    <Content Include="assets\js\lib\angular\angular-animate.js" />
+    <Content Include="assets\js\lib\angular\angular-animate.min.js" />
+    <Content Include="assets\js\lib\angular\angular-cookies.js" />
+    <Content Include="assets\js\lib\angular\angular-cookies.min.js" />
+    <Content Include="assets\js\lib\angular\angular-csp.css" />
+    <Content Include="assets\js\lib\angular\angular-loader.js" />
+    <Content Include="assets\js\lib\angular\angular-loader.min.js" />
+    <Content Include="assets\js\lib\angular\angular-mocks.js" />
+    <Content Include="assets\js\lib\angular\angular-resource.js" />
+    <Content Include="assets\js\lib\angular\angular-resource.min.js" />
+    <Content Include="assets\js\lib\angular\angular-route.js" />
+    <Content Include="assets\js\lib\angular\angular-route.min.js" />
+    <Content Include="assets\js\lib\angular\angular-sanitize.js" />
+    <Content Include="assets\js\lib\angular\angular-sanitize.min.js" />
+    <Content Include="assets\js\lib\angular\angular-scenario.js" />
+    <Content Include="assets\js\lib\angular\angular-touch.js" />
+    <Content Include="assets\js\lib\angular\angular-touch.min.js" />
+    <Content Include="assets\js\lib\angular\angular.js" />
+    <Content Include="assets\js\lib\angular\angular.min.js" />
+    <Content Include="assets\js\lib\domReady.js" />
+    <Content Include="assets\js\lib\jquery\jquery-2.1.1.intellisense.js" />
+    <Content Include="assets\js\lib\jquery\jquery-2.1.1.js" />
+    <Content Include="assets\js\lib\jquery\jquery-2.1.1.min.js" />
+    <Content Include="assets\js\lib\modernizr\modernizr-2.8.3.js" />
+    <Content Include="assets\js\lib\q\q.js" />
+    <Content Include="assets\js\lib\q\q.min.js" />
+    <Content Include="assets\js\lib\require\r.js" />
+    <Content Include="assets\js\lib\require\require.js" />
+    <Content Include="assets\js\lib\underscore\underscore.js" />
+    <Content Include="assets\js\lib\underscore\underscore.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\modules\module-controller.js" />
+    <Content Include="assets\js\modules\module-service.js" />
+    <Content Include="assets\js\routes.js" />
+    <Content Include="assets\js\services\authentication-service.js" />
+    <Content Include="assets\js\services\base-service.js" />
+    <Content Include="assets\js\services\tutorial-service.js" />
+    <Content Include="assets\views\index.html" />
+    <Content Include="assets\views\login.html" />
+    <Content Include="assets\views\tutorials\createtutorial.html" />
+    <Content Include="assets\views\tutorials\tutorial.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="assets\js\lib\angular\angular-animate.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-cookies.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-loader.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-resource.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-route.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-sanitize.min.js.map" />
+    <None Include="assets\js\lib\angular\angular-touch.min.js.map" />
+    <None Include="assets\js\lib\angular\angular.min.js.map" />
+    <None Include="assets\js\lib\angular\errors.json" />
+    <None Include="assets\js\lib\angular\version.json" />
+    <None Include="assets\js\lib\jquery\jquery-2.1.1.min.map" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="AfterBuild">
+    <ItemGroup>
+      <ResourceStuff Include=".\**\*.json;.\**\*.html;.\**\*.jpg;.\**\*.gif;.\**\*.png;.\**\*.js;.\**\*.map;.\**\*.css;.\**\*.eot;.\**\*.svg;.\**\*.ttf;.\**\*.woff;.\**\*.config;.\**\*.json;.\**\*.html;" />
+    </ItemGroup>
+    <Copy SourceFiles="@(ResourceStuff)" DestinationFolder="$(SolutionDir)\..\http\%(RecursiveDir)">
+    </Copy>
+  </Target>
+</Project>

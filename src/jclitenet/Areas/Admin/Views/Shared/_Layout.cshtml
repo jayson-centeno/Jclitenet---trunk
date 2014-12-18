@@ -1,0 +1,67 @@
+﻿@using CoreFramework4
+@using jclitenet.Models
+<!DOCTYPE html>
+<html>
+<head>
+    @Html.Partial("_HeaderPartial")
+</head>
+<body style="overflow-x: hidden;">
+    <div class="top-container clear">
+        <div class="content center-layout">
+            <div id="top-container-about" class="float-left">
+                <a href="@Url.Action("LogOff", "Home")">Logoff</a>
+            </div>
+        </div>
+    </div>
+    <div class="page center-layout">
+        <div id="header">
+            <a href="@Url.Action("Index", "Admin")">
+                <div id="logo">
+                </div>
+            </a>
+            @Html.Partial("_SearchPartial")
+            <ul id="menu">
+                <li>
+                    <div class="home-icon"></div>
+                    <a href="@Url.Action("Index", "Home")">Home</a>
+                </li>
+                <li>
+                    <a href="@Url.Action("ManageUsers", "User")">Users</a>
+                </li>   
+                <li>
+                    <a href="@Url.Action("Index", "SiteConfiguration")">Configurations</a>
+                </li>   
+                <li>
+                    <a href="@Url.Action("Index", "Album")">Albums</a>
+                </li>   
+                <li>
+                    <a href="@Url.Action("Index", "Tutorial", new { type = 1 })">Tutorials</a>
+                </li>   
+                <li>
+                    <a href="@Url.Action("Index", "Game")">Games</a>
+                </li>  
+                <li>
+                    <a href="@Url.Action("Index", "Comment")">Comments</a>
+                </li>   
+                <li>
+                    <a href="@Url.Action("Index", "ChangeLog")">Change Logs</a>
+                </li>   
+            </ul>
+        </div>
+        <div class="contentwrapper box-border">
+            <div id="main">
+                <div id="content-admin" class="admin box box_shadow">
+                    <div id="title-container" class="float-left">
+                        <h2 class="title">@ViewBag.Title</h2>
+                    </div>
+                    <div id="contentBody">
+                        @RenderBody()
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_FooterPartial")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

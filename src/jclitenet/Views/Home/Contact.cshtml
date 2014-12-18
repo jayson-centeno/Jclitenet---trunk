@@ -1,0 +1,45 @@
+﻿@model jclitenet.Models.ContactModels
+
+@section scripts {
+    @Content.Script("jquery.validate.min.js", Url)
+    @Content.Script("jquery.validate.unobtrusive.min.js", Url)
+}
+
+@{
+    ViewBag.Title = "Contact Me";
+}
+
+@Html.ValidationSummary(true,"Please correct all invalid inputs.")
+
+@using (Html.BeginForm()) {
+    <div>
+        <fieldset >
+            <legend>Please fill-up the form to contact me.</legend>
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Email)
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+            
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Message)                
+            </div>
+            <div class="editor-field">
+                @Html.TextAreaFor(m => m.Message)
+                @Html.ValidationMessageFor(m => m.Message)
+            </div>
+            <br />
+            <div>
+                <input type="submit" value="Send"/>
+            </div>
+        </fieldset>
+    </div>
+}
+
+
+
+
+
+

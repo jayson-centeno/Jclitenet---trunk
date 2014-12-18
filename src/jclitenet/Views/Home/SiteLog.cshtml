@@ -1,0 +1,18 @@
+﻿@model IEnumerable<jclitenet.Models.ChangeLogModel>
+@{
+    ViewBag.Title = "Site Logs";
+}
+
+<ul class="box">
+    @foreach (var item in @Model)
+    {    
+        <li class="line-item">
+            <h2>@item.Description</h2>
+            <div class="float-left width100">
+                <div class="float-left">
+                    <span>@item.DateCreated</span>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

@@ -1,0 +1,18 @@
+﻿Code version: 6.0.2202.688
+Assembly name FluentNHibernate, Version=1.2.0.712, Culture=neutral, PublicKeyToken=8aa435e3cb308880 mvid {101d30c1-606a-4dd1-9cd8-fb803f9a0706}
+* ref mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {e6928961-5cf2-40b1-9782-d1df7ba38aa1}
+* ref NHibernate, Version=3.1.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+  mvid {59d7f68c-2e9e-4ac3-806a-53d52b7b04c4}
+* ref System.Core, Version=3.5.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {d7f19ba4-0112-4fd4-aff1-636a620526f2}
+* ref System.Xml, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {3677e837-fa91-4783-9726-53ae377c304f}
+* ref System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {7cab9b06-ad75-48c3-8414-487d1234c428}
+* ref System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+  mvid {3f9fa04d-fc37-4998-b9a3-c1f56aaa0d37}
+* ref System.Configuration, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a
+  mvid {80e002d9-9131-49c6-8460-34cfafa9b6c2}
+* ref Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4
+  mvid {503a81fd-602d-4203-ac73-29ac6ca8781e}

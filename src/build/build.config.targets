@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <!-- ***** VARIABLES ***** -->
+  <PropertyGroup Condition="$(BuildingInsideVisualStudio) != true">
+    <SrcFolder>$(MSBuildStartupDirectory)/../</SrcFolder>
+    <ConfigEnvironment></ConfigEnvironment>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="$(BuildingInsideVisualStudio) == true">
+    <SrcFolder>$(SolutionDir)</SrcFolder>
+    <ConfigEnvironment>$(Computername).</ConfigEnvironment>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <BuildOutput>$(SrcFolder)/../output/</BuildOutput>
+    <DeployFolder>$(SrcFolder)/../http/</DeployFolder>
+    <TargetAssembly>$(OutDir)$(TargetFileName)</TargetAssembly>
+
+    <!--Change this to point to the correct website folder used by IIS-->
+    <PublishFolder>C:\inetpub\wwwroot\jclitenet\</PublishFolder>
+
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--<LibFiles Include="$(SrcFolder)dll/**" />-->
+    <AssemblyFiles Include="$(ProjectDir)**/./bin/**" Exclude="$(ProjectDir)**/*.xml;$(ProjectDir)**/*.config;$(ProjectDir)**/*.pdb" />
+
+    <ConfigFiles Include="$(ProjectDir)Web.config" />
+    <ConfigFiles Include="$(ProjectDir)WebConnectionString.config" />
+
+    <WebFiles Include="$(ProjectDir)**/./views/**" />
+    <WebFiles Include="$(ProjectDir)**/./App_Code/**" />
+    <WebFiles Include="$(ProjectDir)**/./areas/**" Exclude="$(ProjectDir)**/*.cs" />
+    <WebFiles Include="$(ProjectDir)**/./Scripts/**" />
+    <WebFiles Include="$(ProjectDir)**/./Content/**" />
+    <WebFiles Include="$(ProjectDir)Global.asax" />
+    <WebFiles Include="$(ProjectDir)opensearchdescription.xml" />
+    <WebFiles Include="$(ProjectDir)Mvc.sitemap" />
+
+    <!--<WebFiles Include="$(ProjectDir)opensearchdescription.xml" />
+    <WebFiles Include="$(ProjectDir)MvcSiteMapSchema.xsd" />
+    <WebFiles Include="$(ProjectDir)Mvc.sitemap" Exclude="$(ProjectDir)**/*.cs" />-->
+
+    <!--<WebFiles Include="$(ProjectDir)**/./app_plugins/**" />-->
+    <!--<ConfigFiles Include="$(ProjectDir)**/./config/**" />-->
+    
+    <WebFiles Include="$(ProjectDir)**/./usercontrols/**" Exclude="$(ProjectDir)**/*.cs" />
+
+  </ItemGroup>
+
+  <!-- ***** Extension Pack ***** -->
+  <PropertyGroup>
+    <ExtensionPackPath>$(SrcFolder)\build\MSBuild.ExtensionPack.tasks</ExtensionPackPath>
+  </PropertyGroup>
+
+  <!-- ***** BUILD OUTPUT DIR ***** -->
+  <Target Name="SetBuildOutputProperty" Condition="Exists('$(TargetAssembly)') ">
+
+    <GetAssemblyIdentity AssemblyFiles="$(TargetAssembly)">
+      <Output TaskParameter="Assemblies" ItemName="AssemblyFile"/>
+    </GetAssemblyIdentity>
+
+    <PropertyGroup>
+      <BuildOutput>$(BuildOutput)$(TargetName).%(AssemblyFile.Version).$(Configuration)/</BuildOutput>
+    </PropertyGroup>
+
+  </Target>
+
+  <!-- ***** TARGETS ***** -->
+  <Target Name="CopyToOutput" AfterTargets="Build;Rebuild" DependsOnTargets="SetBuildOutputProperty">
+
+    <Message Text="src folder: $(SrcFolder)" Importance="high"/>
+    <Message Text="build output : $(BuildOutput)" Importance="high"/>
+    <Message Text="copying files to : $(BuildOutput)" Importance="high"/>
+
+    <CallTarget Targets="CleanPublish" />
+
+    <CallTarget Targets="SetBuildOutputProperty" 
+                Condition="Exists('$(TargetAssembly)')" />
+
+    <Copy
+        SourceFiles="@(AssemblyFiles);@(WebFiles)"
+        DestinationFolder="$(BuildOutput)%(RecursiveDir)"
+        OverwriteReadOnlyFiles="true"
+        SkipUnchangedFiles="true"
+        />
+
+    <Copy
+        SourceFiles="@(LibFiles)"
+        DestinationFolder="$(BuildOutput)bin\"
+        OverwriteReadOnlyFiles="true"
+        SkipUnchangedFiles="true"
+        />
+
+    <Message Text="copying config files to : $(BuildOutput)" Importance="high"/>
+    <Copy
+        SourceFiles="@(ConfigFiles)"
+        DestinationFolder="$(BuildOutput)%(RecursiveDir)"
+        OverwriteReadOnlyFiles="true"
+        SkipUnchangedFiles="true"
+        />
+
+    <CallTarget Targets="DeployFiles" />
+    <CallTarget Targets="PublishFiles" Condition="'$(DeployFolder)*.*' != ''" />
+                
+  </Target>
+
+  <Import Project="$(ExtensionPackPath)" />
+
+  <Target Name="CleanPublish">
+
+    <ItemGroup>
+      <FilesToClean Include="$(PublishFolder)\**\*"/>
+      <Directories Include="$([System.IO.Directory]::GetDirectories('$(PublishFolder)', '*', System.IO.SearchOption.AllDirectories))"
+                   Exclude="$(PublishFolder)"/>
+    </ItemGroup>
+    
+    <RemoveDir Directories="@(Directories)" />
+    <RemoveDir Directories="$(BuildOutput)" />
+    <!--<RemoveDir Directories="$(DeployFolder)" />-->
+
+    <Delete Files="@(FilesToClean)" ContinueOnError="true"/>
+
+  </Target>
+  
+  <Target Name="DeployFiles">
+
+    <ItemGroup> 
+      <BuildFiles Include="$(BuildOutput)**" />
+    </ItemGroup>
+
+    <Message Text="deploying build files to : $(DeployFolder)" Importance="high"/>
+    <Copy
+        SourceFiles="@(BuildFiles)"
+        DestinationFolder="$(DeployFolder)%(RecursiveDir)"
+        OverwriteReadOnlyFiles="true"
+        SkipUnchangedFiles="true"
+        />
+
+  </Target>
+
+  <Target Name="PublishFiles">
+
+    <ItemGroup>
+      <DeployFiles Include="$(DeployFolder)**" />
+    </ItemGroup>
+
+    <Message Text="deploying Publish Files : $(PublishFolder)" Importance="high"/>
+    <Message Text="Copying Files : @(DeployFiles)" Importance="high"/>
+
+    <Copy
+        SourceFiles="@(DeployFiles)"
+        DestinationFolder="$(PublishFolder)%(RecursiveDir)"
+        OverwriteReadOnlyFiles="true"
+        SkipUnchangedFiles="true"
+    />
+
+  </Target>
+  
+</Project>

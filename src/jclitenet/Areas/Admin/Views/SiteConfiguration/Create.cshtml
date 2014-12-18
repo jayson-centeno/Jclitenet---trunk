@@ -1,0 +1,30 @@
+﻿@model jclitenet.Areas.Admin.Models.SiteConfigurationModel
+@{
+    ViewBag.Title = "Create Configuration";
+}
+
+@using (Html.BeginForm())
+{ 
+    
+    <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    </div>
+        
+    <div class="text-spacer">
+        @Html.TextAreaFor(m => m.ConfigValue, new { placeholder = "ConfigValue", Class="min-textarea" })
+    </div>
+    
+    <div class="text-spacer">
+        @Html.LabelFor(m => m.IsDeleted)
+        @Html.CheckBoxFor(m => m.IsDeleted)
+    </div>
+    
+    <div class="text-spacer">
+        @Html.LabelFor(m => m.IsHtml)
+        @Html.CheckBoxFor(m => m.IsHtml)
+    </div>
+    
+    <input type="submit" value="Save" />
+
+}

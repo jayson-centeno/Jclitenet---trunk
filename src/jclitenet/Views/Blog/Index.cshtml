@@ -1,0 +1,26 @@
+﻿@model IEnumerable<jclitenet.Models.BlogModel>
+@{
+    ViewBag.Title = "Blogs";
+}
+<div class="contentBox">
+    @foreach (var item in @Model)
+    {
+        <div class="pictureBox float-left" >
+            <img alt="" width="106" heigh="44" src="/Content/images/sample.jpg" />
+        </div>
+        <div class="clear"></div>
+        <div class="postTitle">
+            <h1>
+                @Html.ActionLink(item.Name, "DisplayBlog", "Blog", new { id = item.ID }, null)
+            </h1>
+        </div>
+        <div class="postContent">
+            <p>
+                @Html.DisplayFor(model => item.Content)
+            </p>
+        </div>
+        <div class="box_shadow"></div>
+    }
+    
+</div>
+

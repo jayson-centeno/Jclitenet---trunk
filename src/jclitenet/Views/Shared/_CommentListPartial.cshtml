@@ -1,0 +1,60 @@
+﻿@model IEnumerable<jclitenet.Models.CommentModel>
+
+<div class="comment-section box">
+
+    <h1>@Model.Count() Comment(s)</h1>
+    <div class="clear"></div>
+
+    <ul>
+    @foreach (var comment in @Model)
+    {
+        <li class="comment-item">
+
+            <div class="avatar box">
+                <img width="35" id="img_@comment.Id" height="35" src="/Content/images/nopic-small.png" />
+
+                <script type="text/javascript" >
+
+                    var src = 'http://www.gravatar.com/avatar/' + md5('@comment.Email') +
+                        '?default=' + encodeURIComponent(GetRootDomain() + '/Content/images/nopic-small.png');
+
+                    $('#img_@comment.Id').attr('src', src);
+
+                </script>
+
+            </div>
+
+            <div class="user-comment-wrapper">
+
+                <div class="user-says">
+
+                    @{
+                        if (@comment.IsValidWebSite)
+                        {
+                            <a href="@comment.Website" target="_blank">@comment.AnonymousName</a>
+                        }
+                        else
+                        {
+                            @comment.AnonymousName
+                        }
+                    } Says...</div>
+
+                <div class="comment-date">@comment.DateCreated.Value.ToLongDateString()</div>
+                <div class="user-comment">@comment.CommentText</div>
+
+            </div>
+
+            @if(comment.Tutorial_ID.HasValue)
+            {
+                @Html.HiddenFor(m => comment.Tutorial_ID)
+            } 
+            else if (comment.Game_ID.HasValue)
+            {
+                @Html.HiddenFor(m => comment.Game_ID)
+            }
+
+        </li>
+    }
+    </ul>
+  <div class="clear"></div>
+</div>

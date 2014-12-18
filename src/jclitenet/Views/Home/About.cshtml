@@ -1,0 +1,20 @@
+﻿@using CoreFramework4;
+
+@{
+    ViewBag.Title = "About me";
+}
+
+<p>
+    @{
+        @Html.Raw((string)CoreFramework4.SiteConfigTool.GetValue<string>("about").ToHtmlDecode());
+    }
+</p>
+
+<br />
+<br />
+<br />
+<h2 class="text-fade">
+    © 2011-2012 jclitenet.com. All rights reserved.
+    <br />
+    Powered By MVC 3 | Entity Framework 4.1 | SQL Server 2008 R2 | StructureMap (IoC) | Domain Driven Development(DDD)
+</h2>

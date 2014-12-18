@@ -1,0 +1,10 @@
+﻿@using CoreFramework4;
+@{
+    ViewBag.Title = "Website Information";
+}
+
+<p>
+    @{
+        @Html.Raw((string)CoreFramework4.SiteConfigTool.GetValue<string>("SiteInfo").ToHtmlDecode());
+    }
+</p>

@@ -1,0 +1,29 @@
+﻿@using CoreFramework4;
+
+@model jclitenet.Models.TutorialModelList
+@{
+    ViewBag.Title = @Model.CategoryName;
+}
+
+@{
+    if (@Model.TutorialModels.Count() > 0) { 
+    
+        <ul class="box">
+            @foreach (var item in @Model.TutorialModels)
+            {    
+                <li class="line-item">
+                    <h2><a href="@Url.Action("View", "Tutorial", new { cat = item.Category.CategoryId, id = item.ID, name = item.Name.ToSlug() })">@item.Name</a></h2>
+                    <div class="float-left width100">
+                        <div class="float-left" >
+                            <span>@item.DateCreated</span>    
+                        </div>
+                        <div class="float-right">
+                            Comments: @item.CommentCount
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+    
+    }
+}

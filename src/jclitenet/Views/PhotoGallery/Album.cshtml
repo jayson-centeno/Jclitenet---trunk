@@ -1,0 +1,39 @@
+﻿@model jclitenet.Models.AlbumModel
+@{
+    ViewBag.Title = @Model.Name;
+}
+@Content.Script("jquery.lightbox-0.5.min.js", Url)
+<link href="@Url.Content("~/Content/jquery.lightbox-0.5.css")" rel="stylesheet" type="text/css" />
+@{
+    if (@Model.Photos.Count() == 0)
+    {
+    <h2>
+        No photos available</h2>
+    }
+    else
+    {
+    <div id="gallery">
+        <ul>
+            @{
+                foreach (var photoItem in @Model.Photos)
+                {
+                        <li><a title="@photoItem.Name" href="/content/photos/@Model.UID.ToString()/@photoItem.FileName">
+                            <img width="100" height="100" alt="" src="/content/photos/@Model.UID.ToString()/@photoItem.FileName">
+                        </a></li>
+                }
+            }
+        </ul>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            $('#gallery a').lightBox({
+                imageLoading: '/content/images/lightbox/lightbox-ico-loading.gif',
+                imageBtnPrev: '/content/images/lightbox-btn-prev.gif',
+                imageBtnNext: '/content/images/lightbox/lightbox-btn-next.gif',
+                imageBtnClose: '/content/images/lightbox/lightbox-btn-close.gif',
+                imageBlank: '/content/images/lightbox/lightbox-blank.gif'
+            });
+        });
+    </script>
+    }
+}

@@ -1,0 +1,19 @@
+﻿@using CoreFramework4;
+@model IEnumerable<jclitenet.Models.CategoryModel>
+@{
+    ViewBag.Title = "Development";
+}
+<div>
+    <ul>
+        @{
+            foreach (var categoryItem in @Model)
+            {
+                <li class="thumbnail thumbnail-custom">
+                    <a title="@categoryItem.Title" href="@Url.Action("Category", "Tutorial", new { id = categoryItem.CategoryId, name = categoryItem.Title.ToSlug() })">
+                        @categoryItem.Title
+                    </a>
+                </li>
+            }
+        }
+    </ul>
+</div>

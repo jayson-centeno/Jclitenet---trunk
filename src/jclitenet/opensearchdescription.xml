@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+  <ShortName>jclitenet.com</ShortName>
+  <Description>Use Google to search jclitenet.com</Description>
+  <Tags>Jayson J. Centeno - personal website, tutorials, blogs</Tags>
+  <Url type="text/html"
+       template="http://www.google.com/search?q=site:jclitenet.com - personal website, tutorials, blogs"/>
+</OpenSearchDescription>

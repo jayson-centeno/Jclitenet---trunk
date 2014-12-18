@@ -1,0 +1,38 @@
+﻿@model jclitenet.Models.TutorialModel
+
+@{
+    ViewBag.Title = @Model.Name;
+}
+
+@*@Content.Script("tinymce/tinymce.min.js", Url)*@
+
+@using (Html.BeginForm("Edit", "Tutorial"))
+{ 
+     <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    </div>
+    
+    <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.HtmlContent)
+        @Html.TextAreaFor(m => m.HtmlContent, new { id = "htmlContentId", placeholder = "Html Content", @class = "syntax-textarea" })
+    </div>
+    
+    @Html.HiddenFor(m => m.ID)
+    
+    <div class="text-spacer">
+        <input type="submit" value="Save" />
+    </div>
+}
+
+<script>
+    
+    //tinyMCE.init({
+    //    mode: 'exact',
+    //    elements: 'htmlContentId',
+    //    theme: 'modern',
+    //    toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    //    toolbar2: "print preview media | forecolor backcolor emoticons"
+    //});
+
+</script>

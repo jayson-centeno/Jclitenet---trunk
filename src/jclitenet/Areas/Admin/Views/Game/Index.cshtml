@@ -1,0 +1,22 @@
+﻿@model IEnumerable<jclitenet.Models.GamesModel>
+@using CoreFramework4;
+           
+@{
+    ViewBag.Title = "Manage Games";
+}
+
+<div class="content-toolbar"  >
+    <a>Add New</a>
+</div>
+<ul>
+    @{
+        foreach (var game in @Model)
+        {
+            <li class="thumbnail thumbnail-custom">
+                <a title="@game.Name" href="@Url.Action("Edit", "Game", new { ID = game.ID })">
+                    @game.Name
+                </a>
+            </li>
+        }
+    }
+</ul>

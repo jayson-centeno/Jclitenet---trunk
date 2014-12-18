@@ -1,0 +1,17 @@
+﻿@using System.Web.Mvc;
+
+@helper Script(string scriptName, UrlHelper url){
+    <script src="@url.Content("~/Scripts/" + scriptName)" type="text/javascript"></script>
+}
+
+@helper ScriptBundle(string scriptName){
+    @System.Web.Optimization.Scripts.Render(scriptName)
+}
+
+@helper StyleBundle(string scriptName){
+    @System.Web.Optimization.Styles.Render(scriptName)
+}
+
+@helper CDNScript(string scriptName){
+    <script src="@scriptName" type="text/javascript"></script>
+}

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<jclitenet.Models.ChangeLogModel>
+@{
+    ViewBag.Title = "Change Log";
+}
+<div class="content-toolbar">
+    <a href="@Url.Action("Register", "ChangeLog")">Add New</a>
+</div>
+<table>
+    <tr>
+        <td>
+            ID
+        </td>
+        <td>
+            <b>Description</b>
+        </td>
+    </tr>
+    @foreach (var item in @Model)
+    {
+        <tr>
+            <td>
+                <a href="@Url.Action("Edit", "ChangeLog", new { id = item.ID })">Edit</a>
+                <a href="@Url.Action("Delete", "ChangeLog", new { id = item.ID })" onclick="javascript:return confirm('Delete?')">Delete</a>
+            </td>
+            <td>
+                @item.Description
+            </td>
+        </tr>   
+    }
+</table>

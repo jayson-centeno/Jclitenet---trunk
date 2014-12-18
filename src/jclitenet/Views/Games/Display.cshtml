@@ -1,0 +1,23 @@
+﻿@model jclitenet.Models.GamesModel
+
+@{
+    ViewBag.Title = @Model.Name + " Game";
+}
+
+@if (Model.ID == 1)
+{   
+    @Content.Script("/games/picShuffle/picShuffle.js", Url)
+
+    @Html.Raw(Model.HtmlContent)
+    
+    <div id="games-container">
+    </div>
+
+    <script>
+        $("#games-container").picShuffle.setup({ skinId: 1 })
+    </script>
+}
+
+@Html.Partial("_CommentListPartial", @Model.Comments)
+    
+@Html.Partial("_CommentFormPartial", new jclitenet.Models.CommentModel() { Game_ID = @Model.ID })

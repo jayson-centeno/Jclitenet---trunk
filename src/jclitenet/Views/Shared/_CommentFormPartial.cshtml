@@ -1,0 +1,122 @@
+﻿@model jclitenet.Models.CommentModel
+
+@using Recaptcha.Web.Mvc;
+
+<div class="comment-section box">
+
+    <h1>Leave a Comment</h1>
+    <div class="clear"></div>
+    <div class="field-wrapper">
+        @using (Ajax.BeginForm("Save", "Comment", null,
+                                new AjaxOptions()
+                                {
+                                    HttpMethod = "POST",
+                                    OnSuccess = "Success",
+                                    OnFailure = "Error"
+                                }, new { id = "myform" }))
+        {
+            <div class="text-spacer">
+                <i id="wait" class="icon-spinner icon-spin icon-2x" style="display:none"></i>
+                <div class="box" id="response-text" style="display:none">Thank you for the comment, your entry is awaiting moderation.</div>
+            </div>
+
+            <div class="text-spacer">
+
+                @Html.ValidationSummary(String.Empty)
+
+                <div class="error validation-summary-errors recaptcha-error hidden">
+                    <span>Invalid Recapcha value</span>
+                </div>
+
+            </div>
+
+            <div class="user-photo box">
+            </div>
+
+            <div class="inputs">
+
+                <div class="text-spacer">
+                    @Html.TextAreaFor(m => m.CommentText, new { placeholder = "Your Comment (Required)" })
+                </div>
+
+                <div class="inputs">
+                    <div class="text-spacer">
+                        @Html.TextBoxFor(m => m.AnonymousName, new { placeholder = "Name (Required)" })
+                    </div>
+                    <div class="text-spacer">
+                        @Html.TextBoxFor(m => m.Email, new { placeholder = "Email (Required)" })
+                    </div>
+                </div>
+
+                <div class="inputs">
+                    <div class="text-spacer">
+                        @Html.TextBoxFor(m => m.Website, new { placeholder = "Website" })
+                    </div>
+                </div>
+
+                @if (@Model.Tutorial_ID.HasValue)
+                {
+                    @Html.HiddenFor(m => @Model.Tutorial_ID)
+                }
+                else if (@Model.Game_ID.HasValue)
+                {
+                    @Html.HiddenFor(m => @Model.Game_ID)
+                }
+
+                @Html.HiddenFor(m => @Model.Title)
+
+                <div class="text-spacer">
+                    @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+                </div>
+
+                <div class="clear text-spacer">
+                    <button type="submit" onclick="Init()">Submit</button>
+                </div>
+            </div>
+
+        }
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script>
+
+    function Success(response) {
+
+        if (response.Error) {
+            $('.recaptcha-error').text(response.ErrorMessage)
+                                 .fadeIn();
+            $(".validation-summary-errors")
+                    .removeClass('validation-summary-errors')
+                    .addClass('validation-summary-valid');
+            $("#response-text").fadeOut();
+            $("#wait").fadeOut();
+        }
+        else {
+            Clear();
+            $("#response-text").fadeIn('slow');
+        }
+
+        Recaptcha.reload();
+    }
+
+    function Error(response) {}
+
+    function Init() {
+        if ($('#myform').valid()) {
+            $("#response-text").hide();
+            $("#wait").fadeIn();
+        }
+    }
+
+    function Clear() {
+        $('.comment-section input[type=text], .comment-section textarea').val(null).text(null);
+        $(".validation-summary-errors")
+                .removeClass('validation-summary-errors')
+                .addClass('validation-summary-valid');
+        $("#response-text").fadeOut();
+        $('.recaptcha-error').fadeOut();
+        $("#wait").fadeOut();
+    }
+
+</script>

@@ -1,0 +1,22 @@
+﻿@model CoreFramework4.Model.Blog
+@{
+    ViewBag.Title = "Blog Details";
+}
+<div class="contentBox">
+    <div class="pictureBox float-left" >
+        <img alt="" width="106" heigh="44" src="/Content/images/sample.jpg" />
+    </div>
+    <div class="clear"></div>
+    <div class="postTitle">
+        <h1>
+            @Html.ActionLink(@Model.Name, "DisplayBlog", "Blog", new { id = @Model.Id }, null)
+        </h1>
+    </div>
+    <div class="postContent">
+        <p>
+            @Html.DisplayFor(model => model.Content)
+        </p>
+    </div>
+    
+</div>
+<div class="box_shadow"></div>

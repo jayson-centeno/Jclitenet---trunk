@@ -1,0 +1,21 @@
+﻿@model IEnumerable<jclitenet.Models.CategoryModel>
+           
+@{
+    ViewBag.Title = "Manage Tutorials";
+}
+
+<div class="content-toolbar"  >
+    <a>Add New</a>
+</div>
+<ul>
+    @{
+        foreach (var categoryItem in @Model)
+        {
+            <li class="thumbnail thumbnail-custom">
+                <a title="@categoryItem.Title" href="@Url.Action("Category", "Tutorial", new { catType = 1, id = categoryItem.CategoryId })">
+                    @categoryItem.Title
+                </a>
+            </li>
+        }
+    }
+</ul>

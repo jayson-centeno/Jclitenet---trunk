@@ -1,0 +1,14 @@
+﻿@using CoreFramework4
+@model IEnumerable<jclitenet.Models.SideMenuModelItem>
+<div class="menu-title">
+    <div class="submenu-tutorial-icon"></div>
+    <h2>
+        Tutorials Categories
+    </h2>
+</div>
+<ul>
+    @foreach (var item in @Model)
+    {
+        <li><a href="@Url.Action("Category", "Tutorial", new { id = item.ID, name=item.Title.ToSlug() })">@item.Title</a></li>
+    }
+</ul>

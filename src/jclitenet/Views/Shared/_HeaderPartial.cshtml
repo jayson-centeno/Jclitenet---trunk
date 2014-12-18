@@ -1,0 +1,45 @@
+﻿@using CoreFramework4
+@using jclitenet.Models
+
+<link rel="shortcut icon" type="image/x-icon" href="/Content/images/jclitenetIcon.png">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta content="personal, development, tutorials and blogs website" name="description">
+<meta content="Jayson Centeno, personal website, tutorials, blogs" name="keywords">
+<meta content="index, follow, NOODP" name="Robots">
+<meta name="author" content="Jayson Centeno">
+<meta name="revisit-after" content="1 days">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>@ViewBag.Title - jclitenet</title>
+
+@*<link href="@Url.Content("~/Content/Reset.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/themes/base/jquery.ui.all.css")" rel="stylesheet" type="text/css" />*@
+
+@*<link href="~/assets/css/foundation.min.css" rel="stylesheet" type="text/css" />*@
+
+<link href="@Url.Content("~/Content/font-awesome/css/font-awesome.min.css")" rel="stylesheet" type="text/css" />
+
+@*<link href="~/assets/css/foundation.min.css" rel="stylesheet" />*@
+
+@Content.StyleBundle("~/content/css")
+@Content.StyleBundle("~/content/themes/base/css")
+@*@Content.StyleBundle("~/content/font-awesome/css")*@
+@Content.ScriptBundle("~/bundles/jquery")
+
+@{
+    if (@User != null && @User.ToLogonInfo().IsGuest)
+    {
+        @Content.Script("custom_easing.js", Url)
+    }
+}
+
+@*@Content.Script("jquery-1.5.1.min.js", Url)
+@Content.Script("jquery-ui-1.8.11.min.js", Url)
+@Content.Script("jquery.validate.min.js", Url)
+@Content.Script("jquery.validate.unobtrusive.min.js", Url)
+@Content.Script("jquery.unobtrusive-ajax.min.js", Url)
+@Content.Script("jquery.easing.1.3.js", Url)
+@Content.Script("custom_easing.js", Url)
+@Content.Script("application.js", Url)*@
+
+@Html.Partial("_GoogleAnalyticsPartial")

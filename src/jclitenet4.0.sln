@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "jclitenet", "jclitenet\jclitenet.csproj", "{2F5C2719-5952-46F5-A9FF-F16D24CB9AC4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreFramework4", "CoreFramework4\CoreFramework4.csproj", "{168CBC76-B061-460F-8BA5-1B8D2127BAB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreFramework4.Migration", "CoreFramework4.Migration\CoreFramework4.Migration.csproj", "{90B53E48-6681-4E1E-BE0F-EE2F666272A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoreFramework4.Spa.Resources", "CoreFramework4.Spa.Resources\CoreFramework4.Spa.Resources.csproj", "{55982239-9047-4178-B958-853BAB45B9CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{6EA5AB12-3AEC-4FAE-B2AC-8B66F10283E7}"
+	ProjectSection(SolutionItems) = preProject
+		build\build.config.targets = build\build.config.targets
+		build\MSBuild.ExtensionPack.tasks = build\MSBuild.ExtensionPack.tasks
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2F5C2719-5952-46F5-A9FF-F16D24CB9AC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F5C2719-5952-46F5-A9FF-F16D24CB9AC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F5C2719-5952-46F5-A9FF-F16D24CB9AC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F5C2719-5952-46F5-A9FF-F16D24CB9AC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{168CBC76-B061-460F-8BA5-1B8D2127BAB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{168CBC76-B061-460F-8BA5-1B8D2127BAB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{168CBC76-B061-460F-8BA5-1B8D2127BAB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{168CBC76-B061-460F-8BA5-1B8D2127BAB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90B53E48-6681-4E1E-BE0F-EE2F666272A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90B53E48-6681-4E1E-BE0F-EE2F666272A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90B53E48-6681-4E1E-BE0F-EE2F666272A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90B53E48-6681-4E1E-BE0F-EE2F666272A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{55982239-9047-4178-B958-853BAB45B9CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{55982239-9047-4178-B958-853BAB45B9CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{55982239-9047-4178-B958-853BAB45B9CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{55982239-9047-4178-B958-853BAB45B9CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

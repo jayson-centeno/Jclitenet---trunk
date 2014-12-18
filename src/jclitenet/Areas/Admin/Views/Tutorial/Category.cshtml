@@ -1,0 +1,24 @@
+﻿@model jclitenet.Models.TutorialModelList
+@{
+    ViewBag.Title = @Model.CategoryName;
+}
+
+<div class="content-toolbar">
+    <a href="@Url.Action("Create", "Tutorial", new { id = @Model.CategoryId })">Add New</a>
+</div>
+<ul>
+    @foreach (var item in @Model.TutorialModels)
+    {    
+        <li class="line-item">
+            <h2><a href="@Url.Action("Edit", "Tutorial", new { id = item.ID })">@item.Name</a></h2>
+            <div class="float-left width100">
+                <div class="float-left">
+                    <span>@item.DateCreated</span>
+                </div>
+                <div class="float-right">
+                    <a onclick="return confirm('Are you sure you want to delete?');" href="@Url.Action("Delete", "Tutorial", new { id = item.ID, catType = 1, catId=@Model.CategoryId})">Delete</a>
+                </div>
+            </div>
+        </li>
+    }
+</ul>

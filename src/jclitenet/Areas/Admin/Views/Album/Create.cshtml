@@ -1,0 +1,19 @@
+﻿@model jclitenet.Models.AlbumModel
+
+@{
+    ViewBag.Title = "Create New Album";
+}
+
+@using (@Html.BeginForm("Create", "Album", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ 
+    <div class="text-spacer">
+        @Html.ValidationMessageFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { placeholder = "Name" })
+    </div>
+        
+     <div class="text-spacer">
+        <input type="file" name="Image" value="upload photos" multiple="multiple" >
+    </div>
+    
+    <input type="submit" value = "Save" />
+}

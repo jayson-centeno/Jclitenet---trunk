@@ -49,6 +49,13 @@ namespace jclitenet
             );
 
             routes.MapRoute(
+              "Archive", // Route name
+              "Archive/{year}/{month}", // URL with parameters
+                new { controller = "Archive", action = "Index", year = UrlParameter.Optional, month = UrlParameter.Optional },
+                new[] { "jclitenet.Controllers" }
+            );
+
+            routes.MapRoute(
                 "Default", // Route name
                 "{controller}/{action}/{id}", // URL with parameters
                 new { controller = "Home", action = "Index", id = UrlParameter.Optional },

@@ -1,9 +1,12 @@
-﻿@model jclitenet.Models.LogOnModel
+﻿@using System.Web.Mvc;
+@using System.Web.WebPages.Html;
 @using CoreFramework4
+
+@model jclitenet.Models.LogOnModel
 
 <div class="logindisplay-wrapper">
     <fieldset class="logon-fieldset">
-        <legend ></legend>
+        <legend></legend>
         @using (Html.BeginForm("LogOn", "Account")) 
         {
             <div class="text-spacer">
@@ -13,7 +16,6 @@
                 @Html.ValidationMessageFor(m => m.Password)
                 @Html.PasswordFor(m => m.Password, new { Class = "inputText", placeholder = "Password" })
             </div>
-           
             <div class="text-spacer">
                 <button type="submit" id="btnLogon">Log On</button>
             </div>

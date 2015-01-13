@@ -9,7 +9,11 @@
             <a href="@item.Href">
                 <span class="post-title anon-name">@item.Name</span> said something to<br />
                 <span class="post-title parent-title">@item.Title</span><br />
-                <span class="archive-date">@item.Posted.ToLongDateString()</span>
+
+                @if(item.Posted != DateTime.MinValue)
+                {
+                    <span class="archive-date">@item.Posted.ToLongDateString()</span>
+                }
             </a>
         </li>    
     }

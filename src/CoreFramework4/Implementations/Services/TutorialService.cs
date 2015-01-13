@@ -23,16 +23,56 @@ namespace CoreFramework4.Implementations.Services
         {
             get
             {
+                string key = "ALLTUTORIALSWITHCOMMENTS";
                 var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
-                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>("ALLTUTORIALS");
+                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
                 if (lst == null || lst.Count() == 0)
                 {
                     lst = _tutorialRepository.GetQuery()
-                                 .Include("TutorialCategory")
-                                 .Include("Comments")
-                                 .ToList();
+                                             .Include("TutorialCategory")
+                                             .Include("Comments")
+                                             .ToList();
 
-                    applicationCachingServices.AddItem("ALLTUTORIALS", lst, 5);
+                    applicationCachingServices.AddItem(key, lst, 5);
+                }
+
+                return lst;
+            }
+        }
+
+        public IEnumerable<Tutorial> GetAllTutorial
+        {
+            get
+            {
+                string key = "ALLTUTORIALS";
+                var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
+                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
+                if (lst == null || lst.Count() == 0)
+                {
+                    lst = _tutorialRepository.GetQuery()
+                                             .ToList();
+
+                    applicationCachingServices.AddItem(key, lst, 5);
+                }
+
+                return lst;
+            }
+        }
+
+        public IEnumerable<Tutorial> GetAllTutorialWithCategory
+        {
+            get
+            {
+                string key = "ALLTUTORIALSWITHCATEGORY";
+                var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
+                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
+                if (lst == null || lst.Count() == 0)
+                {
+                    lst = _tutorialRepository.GetQuery()
+                                             .Include("TutorialCategory")
+                                             .ToList();
+
+                    applicationCachingServices.AddItem(key, lst, 5);
                 }
 
                 return lst;

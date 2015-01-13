@@ -13,25 +13,24 @@ namespace jclitenet.Controllers
     [HandleError]
     public class AccountController : SiteBaseController
     {
+        private readonly IAuthenticationService _authenticationService;
 
-        //
-        // GET: /Account/LogOn
+        public AccountController(IAuthenticationService authenticationService)
+        {
+            _authenticationService = authenticationService;
+        }
 
         public ActionResult LogOn()
         {
             return View();
         }
 
-        //
-        // POST: /Account/LogOn
-
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
             if (ModelState.IsValid)
             {
-                var authenticationService = ServiceFactory.GetInstance<IAuthenticationService>();
-                bool login = authenticationService.LogIn(model.UserName, model.Password, model.RememberMe);
+                bool login = _authenticationService.LogIn(model.UserName, model.Password, model.RememberMe);
                 if (!login)
                 {
                     ModelState.AddModelError("", "Username or Password is invalid.");
@@ -43,9 +42,6 @@ namespace jclitenet.Controllers
             return View();
         }
 
-        //
-        // GET: /Account/LogOff
-
         public ActionResult LogOff()
         {
             FormsAuthentication.SignOut();
@@ -53,16 +49,10 @@ namespace jclitenet.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        //
-        // GET: /Account/Register
-
         public ActionResult Register()
         {
             return View();
         }
-
-        //
-        // POST: /Account/Register
 
         [HttpPost]
         public ActionResult Register(RegisterModel model)

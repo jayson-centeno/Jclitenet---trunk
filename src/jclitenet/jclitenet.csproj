@@ -161,6 +161,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\StructureMapWebActivator.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\AlbumController.cs" />
     <Compile Include="Areas\Admin\Controllers\ChangeLogController.cs" />
@@ -176,6 +177,7 @@
     <Compile Include="Areas\Admin\Models\SiteConfigurationModel.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\Api\AppController.cs" />
+    <Compile Include="Controllers\ArchiveController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
@@ -336,6 +338,9 @@
     </None>
     <None Include="Properties\PublishProfiles\jclitenet4.5.pubxml" />
     <Content Include="Scripts\games\picShuffle\picShuffle.zip" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\games\picShuffle\skin_1\images\0.png" />
     <Content Include="Scripts\games\picShuffle\skin_1\images\1.png" />
@@ -347,6 +352,7 @@
     <Content Include="Scripts\games\picShuffle\skin_1\images\7.png" />
     <Content Include="Scripts\games\picShuffle\skin_1\images\8.png" />
     <Content Include="Scripts\games\picShuffle\skin_1\index.css" />
+    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
     <Content Include="Scripts\jquery-1.5.1.min.js" />
     <Content Include="Scripts\jquery-ui-1.8.11.js" />
@@ -471,6 +477,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
+    <Content Include="Views\Archive\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

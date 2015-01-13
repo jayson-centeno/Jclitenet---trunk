@@ -21,10 +21,11 @@ namespace jclitenet.Controllers
             ViewBag.LatestAlbums = LatestAlbums;
             ViewBag.LatestTutorials = LatestTutorials;
             ViewBag.LatestComments = LatestComments;
+            ViewBag.Archives = Archives;
             ViewBag.CurrentLogin = ServiceFactory.GetInstance<IAuthenticationService>().CurrentUser;
         }
 
-        public IEnumerable<SideMenuModelItem> RecentPostItems
+        private IEnumerable<SideMenuModelItem> RecentPostItems
         {
             get
             {
@@ -48,7 +49,7 @@ namespace jclitenet.Controllers
             }
         }
 
-        public IEnumerable<SideMenuModelItem> LatestAlbums
+        private IEnumerable<SideMenuModelItem> LatestAlbums
         {
             get
             {
@@ -66,26 +67,26 @@ namespace jclitenet.Controllers
             }
         }
 
-        public IEnumerable<SideMenuModelItem> LatestTutorials
+        private IEnumerable<SideMenuModelItem> LatestTutorials
         {
             get
             {
                 return ServiceFactory.GetInstance<ITutorialService>()
                                      .GetAllTutorialWithCategoryWithComments
-                                         .Select(
-                                            a => 
-                                                new SideMenuModelItem() {
-                                                    Posted = a.DateCreated.Value,
-                                                    Title = a.Name,
-                                                    ID = a.ID,
-                                                    Href = HttpServerTool.ToUrlAction("View", "Tutorial", new { cat = a.TutorialCategory.ID, id = a.ID, name = a.Name.ToSlug() })
-                                                })
-                                         .OrderBy(x => Guid.NewGuid())
-                                         .Take(5);
+                                     .Select(
+                                        a => 
+                                            new SideMenuModelItem {
+                                                Posted = a.DateCreated.Value,
+                                                Title = a.Name,
+                                                ID = a.ID,
+                                                Href = HttpServerTool.ToUrlAction("View", "Tutorial", new { cat = a.TutorialCategory.ID, id = a.ID, name = a.Name.ToSlug() })
+                                            })
+                                     .OrderBy(x => Guid.NewGuid())
+                                     .Take(5);
             }
         }
 
-        public IEnumerable<SideMenuModelItem> LatestComments
+        private IEnumerable<SideMenuModelItem> LatestComments
         {
             get
             {
@@ -116,6 +117,30 @@ namespace jclitenet.Controllers
                           .Take(5);
 
                 return lst;
+            }
+        }
+
+        private IEnumerable<SideMenuModelItem> Archives 
+        {
+            get
+            {
+                var x = ServiceFactory.GetInstance<ITutorialService>()
+                                     .GetAllTutorial
+                                     .GroupBy(g => g.DateCreated.Value.Date)
+                                     .Select(g => new { title = g.Key.Date.ToString("MMMM yyyy"), 
+                                                        year = g.Key.Date.ToString("yyyy"), 
+                                                        month = g.Key.Date.ToString("MM") })
+                                     .Distinct()
+                                     .Select(
+                                        a =>
+                                            new SideMenuModelItem
+                                            {
+                                                Title = a.title, 
+                                                Href = HttpServerTool.ToUrlAction("Index", "Archive", new { year = a.year, month = a.month })
+                                            }).Distinct();
+
+
+                return x;
             }
         }
     }

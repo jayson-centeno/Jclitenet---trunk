@@ -21,22 +21,6 @@ namespace jclitenet
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
-
-            WebApiConfig.Register(GlobalConfiguration.Configuration);
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
-
-            BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            //XmlSiteMapController.RegisterRoutes(RouteTable.Routes);
-
-            AppVersion.UpdateToLatestVersion(new Guid("{D435073A-231B-4a6f-9FC6-FD708FD263E7}"));
-            AppVersion.UpdateToLatestVersion(new Guid("{4B543CC9-7A7B-4C9F-A43A-A514B9221248}"));
-
-            BootStrapper.Bootstrap();
-
-            ServiceFactory.GetInstance<ISiteConfigurationService>()
-                          .CacheConfigs();
         }
 
         protected void Application_Error()

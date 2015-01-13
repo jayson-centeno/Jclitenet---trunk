@@ -9,9 +9,16 @@ namespace jclitenet.Controllers
 {
     public class TutorialController : SiteBaseController
     {
+        private readonly ITutorialRepository _tutorialRepository;
+
+        public TutorialController(ITutorialRepository tutorialRepository)
+        {
+            _tutorialRepository = tutorialRepository;
+        }
+
         public ActionResult Index(int type)
         {
-            var tutorialRepository = ServiceFactory.GetInstance<ITutorialRepository>();
+            var tutorialRepository = _tutorialRepository;
             var items = tutorialRepository.GetAllTutorialCategory
                                           .Where(c => c.TutorialType.ID == type)
                                           .Select(a => new CategoryModel()
@@ -26,7 +33,7 @@ namespace jclitenet.Controllers
 
         public ActionResult View(int cat, int id)
         {
-            var tutorialRepository = ServiceFactory.GetInstance<ITutorialRepository>();
+            var tutorialRepository = _tutorialRepository;
             var viewedTutorial = tutorialRepository.GetQuery()
                                                    .Include("Comments")
                                                    .Include("TutorialCategory")
@@ -57,7 +64,7 @@ namespace jclitenet.Controllers
 
         public ActionResult Category(int id)
         {
-            var tutorialRepository = ServiceFactory.GetInstance<ITutorialRepository>();
+            var tutorialRepository = _tutorialRepository;
             var currentCategory = tutorialRepository.GetTutorialCategoryByID(id);
             var listOfTutorials = tutorialRepository.GetAllTutorialWithCommentsByCategoryID(id);
 

@@ -127,6 +127,7 @@
     <Compile Include="Infrastructure\Tools\ICachingTool.cs" />
     <Compile Include="Implementations\Security\LogonInfo.cs" />
     <Compile Include="EF4_1\Model\SiteSetUpModel.cs" />
+    <Compile Include="Mvc\StructureMapControllerFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry\DomainRegistry.cs" />
     <Compile Include="Registry\ServiceRegistry.cs" />

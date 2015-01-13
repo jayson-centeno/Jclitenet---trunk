@@ -13,10 +13,19 @@ namespace jclitenet.Controllers
 {
     public class PhotoGalleryController : SiteBaseController
     {
+        private readonly IAlbumRepository _albumRepository;
+        private readonly IAlbumService _albumService;
+
+        public PhotoGalleryController(IAlbumRepository albumRepository,
+                                      IAlbumService albumService)
+        {
+            _albumRepository = albumRepository;
+            _albumService = albumService;
+        }
+
         public ActionResult Index()
         {
-            var albumRepository = ServiceFactory.GetInstance<IAlbumRepository>();
-            var albumModels = albumRepository.GetAll().OrderBy(a => a.ID)
+            var albumModels = _albumRepository.GetAll().OrderBy(a => a.ID)
                                           .Select(a => new AlbumModel()
                                           {
                                               ID = a.ID,
@@ -31,8 +40,7 @@ namespace jclitenet.Controllers
 
         public ActionResult Album(int id)
         {
-            var albumService = ServiceFactory.GetInstance<IAlbumService>();
-            var album = albumService.GetAllAlbumWithPhotos().FirstOrDefault(a => a.ID == id);
+            var album = _albumService.GetAllAlbumWithPhotos().FirstOrDefault(a => a.ID == id);
 
             var albumModel = new AlbumModel() 
             {
@@ -57,6 +65,5 @@ namespace jclitenet.Controllers
 
             return View(albumModel);
         }
-
     }
 }

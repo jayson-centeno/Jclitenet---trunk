@@ -10,6 +10,22 @@ namespace jclitenet.Controllers
 {
     public class HomeController : SiteBaseController
     {
+        private readonly ISiteConfigurationService _siteconfigurationService;
+        private readonly IMailService _emailService;
+        private readonly IBlogRepository _blogRepository;
+        private readonly IChangeLogRepository _changeLogRepository;
+
+        public HomeController(ISiteConfigurationService siteconfigurationService, 
+                              IMailService emailService,
+                              IBlogRepository blogRepository,
+                              IChangeLogRepository changeLogRepository) 
+        {
+            _siteconfigurationService = siteconfigurationService;
+            _emailService = emailService;
+            _blogRepository = blogRepository;
+            _changeLogRepository = changeLogRepository;
+        }
+        
         public ActionResult Index()
         {
             return View();
@@ -22,9 +38,6 @@ namespace jclitenet.Controllers
 
         public ActionResult About()
         {
-            var service = ServiceFactory.GetInstance<ISiteConfigurationService>();
-            string aboutValue = service.GetConfigValue<string>(SiteConfigName.ABOUT);
-
             return View();
         }
 
@@ -41,10 +54,7 @@ namespace jclitenet.Controllers
         [HttpPost]
         public ActionResult Contact(ContactModels contactModel)
         {
-            if(ModelState.IsValid)
-                ServiceFactory.GetInstance<IMailService>()
-                              .SendContactMe(contactModel.Email, contactModel.Message);
-
+            if(ModelState.IsValid) _emailService.SendContactMe(contactModel.Email, contactModel.Message);
             return RedirectToAction("Contact");
         }
 
@@ -60,8 +70,7 @@ namespace jclitenet.Controllers
 
         public ActionResult Blogs()
         {
-            var blogRepository = ServiceFactory.GetInstance<IBlogRepository>();
-            BlogModel blogs = new BlogModel();
+            var blogs = new BlogModel();
             //blogRepository.GetAll()
             //                          .Include(b=> b.CreatedBy)
             //                          .Include(b => b.Comments);
@@ -70,15 +79,13 @@ namespace jclitenet.Controllers
 
         public ActionResult SiteLog()
         {
-            return View(ServiceFactory.GetInstance<IChangeLogRepository>()
-                                                       .GetAll()
-                                                       .Select(m => new ChangeLogModel() {
-                                                           DateCreated = m.DateCreated,
-                                                           Description = m.Description
-                                                       })
-                                                       .OrderByDescending(c => c.DateCreated)
-                                                       .AsParallel()
-                      );
+            return View(_changeLogRepository.GetAll()
+                                            .Select(m => new ChangeLogModel() {
+                                                        DateCreated = m.DateCreated,
+                                                        Description = m.Description
+                                                    })
+                                            .OrderByDescending(c => c.DateCreated)
+            );
         }
 
         public ActionResult MyPortfolio()

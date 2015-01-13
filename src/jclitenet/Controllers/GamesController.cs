@@ -8,21 +8,28 @@ namespace jclitenet.Controllers
 {
     public class GamesController : SiteBaseController
     {
+        private readonly IGameRepository _gameRepository;
+        public GamesController(IGameRepository gameRepository) 
+        {
+            _gameRepository = gameRepository;
+        }
+
         public ActionResult Index()
         {
-            var games = ServiceFactory.GetInstance<IGameRepository>()
-                                      .GetAll().Select(g => new GamesModel()
-                                      {
+            var games = _gameRepository
+                            .GetAll()
+                            .Select(
+                                g => new GamesModel()
+                                    {
                                         ID = g.ID,
                                         Name = g.Name
-                                      });
+                                });
             return View(games);
         }
 
         public ActionResult Display(int id)
         {
-            var game = ServiceFactory.GetInstance<IGameRepository>()
-                                     .GetQuery()
+            var game = _gameRepository.GetQuery()
                                      .Include("Comments")
                                      .First(g => g.ID == id);
 

@@ -10,17 +10,22 @@ namespace jclitenet.Controllers
 {
     public class BlogController : SiteBaseController
     {
+        private readonly IBlogRepository _blogRepository;
+
+        public BlogController(IBlogRepository blogRepository)
+        {
+            _blogRepository = blogRepository;
+        }
+
         public ActionResult DisplayBlog(int id)
         {
-            var blogRepository = ServiceFactory.GetInstance<IBlogRepository>();
-            var blog = blogRepository.First(b => b.Id == id);
+            var blog = _blogRepository.First(b => b.Id == id);
             return View(blog);
         }
 
         public ActionResult Edit(int id)    
         {
-            var blogRepository = ServiceFactory.GetInstance<BlogRepository>();
-            var blog = blogRepository.First(b => b.Id == id);
+            var blog = _blogRepository.First(b => b.Id == id);
             return View(blog);
         }
 
@@ -30,12 +35,10 @@ namespace jclitenet.Controllers
             Blog eblog = null;
             if (ModelState.IsValid)
             {
-                var blogRepository = ServiceFactory.GetInstance<BlogRepository>();
-                eblog = blogRepository.First(b => b.Id == blog.Id);
-
+                eblog = _blogRepository.First(b => b.Id == blog.Id);
                 eblog.Name = blog.Name;
                 eblog.Content = blog.Content;
-                blogRepository.SaveChanges();
+                _blogRepository.SaveChanges();
             }
 
             return View(eblog);
@@ -43,8 +46,7 @@ namespace jclitenet.Controllers
 
         public ActionResult Index()
         {
-            var blogRepository = ServiceFactory.GetInstance<IBlogRepository>();
-            var blogs = blogRepository.GetAll()
+            var blogs = _blogRepository.GetAll()
                                       .ToList()
                                       .Select(b => new BlogModel()
                                       {

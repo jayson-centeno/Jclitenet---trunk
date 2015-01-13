@@ -8,12 +8,20 @@ using CoreFramework4.Model;
 using CoreFramework4.Infrastructure.Services;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
-using System.Threading.Tasks;
 
 namespace jclitenet.Controllers
 {
     public class CommentController : Controller
     {
+        private readonly ICommentRepository _commentRepository;
+        private readonly IMailService _emailService;
+
+        public CommentController(ICommentRepository commentRepository, IMailService emailService) 
+        {
+            _commentRepository = commentRepository;
+            _emailService = emailService;
+        }
+
         public ActionResult Save(CommentModel model)
         {
             string ip = HttpServerTool.GetIpAddress(this.Request);
@@ -41,8 +49,6 @@ namespace jclitenet.Controllers
 
             if (ModelState.IsValid)
             {
-                var repository = ServiceFactory.GetInstance<ICommentRepository>();
-
                 var comment = new Comment()
                 {
                     AnonymousName = model.AnonymousName,
@@ -59,11 +65,9 @@ namespace jclitenet.Controllers
                 else if (model.Game_ID.HasValue)
                     comment.Game_ID = model.Game_ID.Value;
 
-                repository.Add(comment);
-                repository.SaveChanges();
-
-                ServiceFactory.GetInstance<IMailService>()
-                              .SendNewComment(comment.AnonymousName, comment.CommentText, model.Title);
+                _commentRepository.Add(comment);
+                _commentRepository.SaveChanges();
+                _emailService.SendNewComment(comment.AnonymousName, comment.CommentText, model.Title);
             }
 
             return Content(String.Empty);

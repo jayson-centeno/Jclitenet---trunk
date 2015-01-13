@@ -14,11 +14,15 @@ namespace jclitenet.Controllers
 {
     public class PartialController : Controller
     {
+        private readonly ITutorialRepository _tutorialRepository;
+
+        public PartialController(ITutorialRepository tutorialRepository) {
+            _tutorialRepository = tutorialRepository;
+        }
+
         public PartialViewResult PartialTuTorialCategories()
         {
-            var tutorialRepository = ServiceFactory.GetInstance<ITutorialRepository>();
-            var items = tutorialRepository.GetAllTutorialCategory.Select(Hydrators.HydrateSideMenuModel);
-
+            var items = _tutorialRepository.GetAllTutorialCategory.Select(Hydrators.HydrateSideMenuModel);
             return PartialView("_SubmenuPartial", items);
         }
 
@@ -31,8 +35,7 @@ namespace jclitenet.Controllers
             int skipPage = pageSize * (page.Value == 1 ? 0 : page.Value - 1);
             int takepage = pageSize;
 
-            var tutorialRepository = ServiceFactory.GetInstance<ITutorialService>();
-            var lst = tutorialRepository.GetAllTutorialWithCategoryWithComments
+            var lst = _tutorialRepository.GetAllTutorialWithCategoryWithComments
                                         .Select(a => new SideMenuModelItem()
                                         {
                                             Posted = a.DateCreated.Value,

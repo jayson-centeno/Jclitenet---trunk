@@ -1,0 +1,19 @@
+﻿@using CoreFramework4;
+@using jclitenet.Models;
+@using System.Collections.Generic;
+
+@{
+    ViewBag.Title = "Archive";
+}
+
+@model IEnumerable<TutorialModel>
+
+@foreach (var item in @Model)
+{
+    <h2 style="padding-bottom:0px;">
+        <a href="@Url.Action("View", "Tutorial", new { cat = item.Category.CategoryId, id = item.ID, name = item.Name.ToSlug() })">@item.Name</a>
+    </h2>
+    <span class="archive-date">@item.DateCreated.Value.ToLongDateString()</span>
+    <br />
+    <br />
+}

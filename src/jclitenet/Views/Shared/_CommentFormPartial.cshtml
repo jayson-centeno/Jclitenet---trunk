@@ -65,6 +65,10 @@
 
                 @Html.HiddenFor(m => @Model.Title)
 
+                <div class="clear text-spacer captcha-warning">
+                    This is a test whether you are a human visitor to prevent automated spam submission.
+                </div>
+
                 <div class="clear text-spacer">
                     @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
                 </div>

@@ -75,7 +75,7 @@ namespace jclitenet.Controllers
                 CategoryId = currentCategory.ID
             };
 
-            if (listOfTutorials.Count() != 0)
+            if (listOfTutorials.Any())
             {
                 var tutorialModel = listOfTutorials.Select(t => new TutorialModel()
                 {

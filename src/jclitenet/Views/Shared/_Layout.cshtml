@@ -94,6 +94,14 @@
                     <div class="menu-item box">
                         <div class="menu-title">
                             <div class="menu-album-icon">
+                            </div>
+                            <h2>Recent Posts</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsPartial", @ViewBag.RecentPostItems as IEnumerable<SideMenuModelItem>)
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-album-icon">
                                 <i class="icon-comments icon-2x"></i>
                             </div>
                             <h2>Recent Comments</h2>
@@ -103,28 +111,20 @@
                     <div class="menu-item box">
                         <div class="menu-title">
                             <div class="menu-album-icon">
-                                <i class="icon-camera icon-2x"></i>
-                            </div>
-                            <h2>Latest Albums</h2>
-                        </div>
-                        @Html.Partial("_MenuItemsPartial", @ViewBag.LatestAlbums as IEnumerable<SideMenuModelItem>)
-                    </div>
-                    <div class="menu-item box">
-                        <div class="menu-title">
-                            <div class="menu-album-icon">
-                            </div>
-                            <h2>Recent Posts</h2>
-                        </div>
-                        @Html.Partial("_MenuItemsPartial", @ViewBag.RecentPostItems as IEnumerable<SideMenuModelItem>)
-                    </div>
-                    <div class="menu-item box">
-                        <div class="menu-title">
-                            <div class="menu-album-icon">
                                 <i class="icon-archive icon-2x"></i>
                             </div>
                             <h2>Archive</h2>
                         </div>
                         @Html.Partial("_MenuItemsPartial", @ViewBag.Archives as IEnumerable<SideMenuModelItem>)
+                    </div>
+                    <div class="menu-item box">
+                        <div class="menu-title">
+                            <div class="menu-album-icon">
+                                <i class="icon-camera icon-2x"></i>
+                            </div>
+                            <h2>Latest Albums</h2>
+                        </div>
+                        @Html.Partial("_MenuItemsPartial", @ViewBag.LatestAlbums as IEnumerable<SideMenuModelItem>)
                     </div>
                 </div>
             </div>

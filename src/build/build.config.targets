@@ -14,8 +14,8 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <BuildOutput>$(SrcFolder)/../output/</BuildOutput>
-    <DeployFolder>$(SrcFolder)/../http/</DeployFolder>
+    <BuildOutput>$(SrcFolder)/../../output/</BuildOutput>
+    <DeployFolder>$(SrcFolder)/../../http/</DeployFolder>
     <TargetAssembly>$(OutDir)$(TargetFileName)</TargetAssembly>
 
     <!--Change this to point to the correct website folder used by IIS-->

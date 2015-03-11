@@ -120,7 +120,7 @@
     <ItemGroup>
       <ResourceStuff Include=".\**\*.json;.\**\*.html;.\**\*.jpg;.\**\*.gif;.\**\*.png;.\**\*.js;.\**\*.map;.\**\*.css;.\**\*.eot;.\**\*.svg;.\**\*.ttf;.\**\*.woff;.\**\*.config;.\**\*.json;.\**\*.html;" />
     </ItemGroup>
-    <Copy SourceFiles="@(ResourceStuff)" DestinationFolder="$(SolutionDir)\..\http\%(RecursiveDir)">
+    <Copy SourceFiles="@(ResourceStuff)" DestinationFolder="$(SolutionDir)\..\..\http\%(RecursiveDir)">
     </Copy>
   </Target>
 </Project>

@@ -12,7 +12,7 @@ namespace CoreFramework4.Utility
         public static void RegisterBundles(BundleCollection bundles)
         {
             var scriptBundle = new ScriptBundle("~/bundles/jquery");
-            scriptBundle.Include("~/Scripts/jquery-1.5.1.min.js");
+            scriptBundle.Include("~/Scripts/jquery-2.1.3.min.js");
             scriptBundle.Include("~/Scripts/jquery-ui-1.8.11.min.js");
             scriptBundle.Include("~/Scripts/jquery.validate.min.js");
             scriptBundle.Include("~/Scripts/jquery.validate.unobtrusive.min.js");

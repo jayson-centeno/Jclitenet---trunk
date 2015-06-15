@@ -2,3 +2,8 @@ D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4.Migrati
 D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4.Migration\bin\Debug\CoreFramework4.Migration.pdb
 D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4.Migration\obj\Debug\CoreFramework4.Migration.dll
 D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4.Migration\obj\Debug\CoreFramework4.Migration.pdb
+C:\Jayson\Projects\jclitenet\src\CoreFramework4.Migration\bin\Debug\CoreFramework4.Migration.dll
+C:\Jayson\Projects\jclitenet\src\CoreFramework4.Migration\bin\Debug\CoreFramework4.Migration.pdb
+C:\Jayson\Projects\jclitenet\src\CoreFramework4.Migration\obj\Debug\CoreFramework4.Migration.dll
+C:\Jayson\Projects\jclitenet\src\CoreFramework4.Migration\obj\Debug\CoreFramework4.Migration.pdb
+C:\Jayson\Projects\jclitenet\src\CoreFramework4.Migration\obj\Debug\CoreFramework4.Migration.csprojResolveAssemblyReference.cache

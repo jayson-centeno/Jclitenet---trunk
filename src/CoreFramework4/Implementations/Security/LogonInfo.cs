@@ -30,7 +30,7 @@ namespace CoreFramework4.Implementations.Security
         {
             get 
             {
-                return String.Empty;
+                return this.Name;
             }
         }
 

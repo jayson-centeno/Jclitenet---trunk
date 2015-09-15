@@ -1,199 +1,125 @@
-﻿/* home -------------------------- */
+﻿body { background-color: #efefef; }
+
+/* home -------------------------- */
 .page-home.ng-leave,
 .page-login.ng-leave,
 .page-createtutorial.ng-leave,
-.page-edittutorial.ng-leave {
-    -webkit-transform-origin: 0% 0%;
-    -webkit-animation: rotateFall 1s both ease-in;
-    -moz-transform-origin: 0% 0%;
-    -moz-animation: rotateFall 1s both ease-in;
-    transform-origin: 0% 0%;
-    animation: rotateFall 1s both ease-in;
-}
+.page-edittutorial.ng-leave { -webkit-transform-origin: 0% 0%; -webkit-animation: rotateFall 1s both ease-in; -moz-transform-origin: 0% 0%; -moz-animation: rotateFall 1s both ease-in; transform-origin: 0% 0%; animation: rotateFall 1s both ease-in; }
 
 .page-home.ng-enter,
 .page-login.ng-enter,
 .page-createtutorial.ng-enter,
-.page-edittutorial.ng-enter {
-    -webkit-animation: scaleUp 0.5s both ease-in;
-    -moz-animation: scaleUp 0.5s both ease-in;
-    animation: scaleUp 0.5s both ease-in;
-}
+.page-edittutorial.ng-enter { -webkit-animation: scaleUp 0.5s both ease-in; -moz-animation: scaleUp 0.5s both ease-in; animation: scaleUp 0.5s both ease-in; }
 
 /* rotate and fall */
 @-webkit-keyframes rotateFall {
-    0% {
-        -webkit-transform: rotateZ(0deg);
-    }
+    0% { -webkit-transform: rotateZ(0deg); }
 
-    20% {
-        -webkit-transform: rotateZ(10deg);
-        -webkit-animation-timing-function: ease-out;
-    }
+    20% { -webkit-transform: rotateZ(10deg); -webkit-animation-timing-function: ease-out; }
 
-    40% {
-        -webkit-transform: rotateZ(17deg);
-    }
+    40% { -webkit-transform: rotateZ(17deg); }
 
-    60% {
-        -webkit-transform: rotateZ(16deg);
-    }
+    60% { -webkit-transform: rotateZ(16deg); }
 
-    100% {
-        -webkit-transform: translateY(100%) rotateZ(17deg);
-    }
+    100% { -webkit-transform: translateY(100%) rotateZ(17deg); }
 }
 
 @-moz-keyframes rotateFall {
-    0% {
-        -moz-transform: rotateZ(0deg);
-    }
+    0% { -moz-transform: rotateZ(0deg); }
 
-    20% {
-        -moz-transform: rotateZ(10deg);
-        -moz-animation-timing-function: ease-out;
-    }
+    20% { -moz-transform: rotateZ(10deg); -moz-animation-timing-function: ease-out; }
 
-    40% {
-        -moz-transform: rotateZ(17deg);
-    }
+    40% { -moz-transform: rotateZ(17deg); }
 
-    60% {
-        -moz-transform: rotateZ(16deg);
-    }
+    60% { -moz-transform: rotateZ(16deg); }
 
-    100% {
-        -moz-transform: translateY(100%) rotateZ(17deg);
-    }
+    100% { -moz-transform: translateY(100%) rotateZ(17deg); }
 }
 
 @keyframes rotateFall {
-    0% {
-        transform: rotateZ(0deg);
-    }
+    0% { transform: rotateZ(0deg); }
 
-    20% {
-        transform: rotateZ(10deg);
-        animation-timing-function: ease-out;
-    }
+    20% { transform: rotateZ(10deg); animation-timing-function: ease-out; }
 
-    40% {
-        transform: rotateZ(17deg);
-    }
+    40% { transform: rotateZ(17deg); }
 
-    60% {
-        transform: rotateZ(16deg);
-    }
+    60% { transform: rotateZ(16deg); }
 
-    100% {
-        transform: translateY(100%) rotateZ(17deg);
-    }
+    100% { transform: translateY(100%) rotateZ(17deg); }
 }
 
 /* scale up */
 @keyframes scaleUp {
-    from {
-        opacity: 0.3;
-        transform: scale(0.8);
-    }
+    from { opacity: 0.3; transform: scale(0.8); }
 }
 
 @-moz-keyframes scaleUp {
-    from {
-        opacity: 0.3;
-        -moz-transform: scale(0.8);
-    }
+    from { opacity: 0.3; -moz-transform: scale(0.8); }
 }
 
 @-webkit-keyframes scaleUp {
-    from {
-        opacity: 0.3;
-        -webkit-transform: scale(0.8);
-    }
+    from { opacity: 0.3; -webkit-transform: scale(0.8); }
 }
 
 /* slide in from the right */
 @keyframes slideInRight {
-    from {
-        transform: translateX(100%);
-    }
+    from { transform: translateX(100%); }
 
-    to {
-        transform: translateX(0);
-    }
+    to { transform: translateX(0); }
 }
 
 @-moz-keyframes slideInRight {
-    from {
-        -moz-transform: translateX(100%);
-    }
+    from { -moz-transform: translateX(100%); }
 
-    to {
-        -moz-transform: translateX(0);
-    }
+    to { -moz-transform: translateX(0); }
 }
 
 @-webkit-keyframes slideInRight {
-    from {
-        -webkit-transform: translateX(100%);
-    }
+    from { -webkit-transform: translateX(100%); }
 
-    to {
-        -webkit-transform: translateX(0);
-    }
+    to { -webkit-transform: translateX(0); }
 }
 
 /* slide in from the bottom */
 @keyframes slideInUp {
-    from {
-        transform: translateY(100%);
-    }
+    from { transform: translateY(100%); }
 
-    to {
-        transform: translateY(0);
-    }
+    to { transform: translateY(0); }
 }
 
 @-moz-keyframes slideInUp {
-    from {
-        -moz-transform: translateY(100%);
-    }
+    from { -moz-transform: translateY(100%); }
 
-    to {
-        -moz-transform: translateY(0);
-    }
+    to { -moz-transform: translateY(0); }
 }
 
 @-webkit-keyframes slideInUp {
-    from {
-        -webkit-transform: translateY(100%);
-    }
+    from { -webkit-transform: translateY(100%); }
 
-    to {
-        -webkit-transform: translateY(0);
-    }
+    to { -webkit-transform: translateY(0); }
 }
 
 /* slide in from the bottom */
 @keyframes slideOutLeft {
-    to {
-        transform: translateX(-100%);
-    }
+    to { transform: translateX(-100%); }
 }
 
 @-moz-keyframes slideOutLeft {
-    to {
-        -moz-transform: translateX(-100%);
-    }
+    to { -moz-transform: translateX(-100%); }
 }
 
 @-webkit-keyframes slideOutLeft {
-    to {
-        -webkit-transform: translateX(-100%);
-    }
+    to { -webkit-transform: translateX(-100%); }
 }
 
+.box { background: #FFF none repeat scroll 0% 0%; border-radius: 10px; padding: 10px 20px; box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16); }
 
-.container {
-    height:400px;
-}
+.centered { position: absolute; left: 50%; top: 40%; transform: translate(-50%, -50%); }
+
+.login { width: 23%; padding: 30px; }
+
+    .login .btn { width: 100%; padding: 10px 20px; }
+
+.error { color: Red; font-size: 12px; padding-top: 5px; }
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px white inset; }
+input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0px 1000px white inset; }

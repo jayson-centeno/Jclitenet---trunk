@@ -18,7 +18,7 @@ namespace jclitenet.Controllers
 
         public ActionResult Index(string year, string month)
         {
-            var tutorials = _tutorialService.GetAllTutorialWithCategory;
+            var tutorials = _tutorialService.GetAllTutorialWithCategory();
 
             int? trueYear = year.TryParseInt();
             int? trueMonth = month.TryParseInt();

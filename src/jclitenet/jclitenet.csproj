@@ -72,6 +72,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RecaptchaNet.1.6.0\lib\net451\Recaptcha.Web.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap, Version=2.6.4.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\structuremap.2.6.4.1\lib\net40\StructureMap.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -187,6 +191,7 @@
     <Compile Include="Controllers\PhotoGalleryController.cs" />
     <Compile Include="Controllers\SiteBaseController.cs" />
     <Compile Include="Controllers\TutorialController.cs" />
+    <Compile Include="DependencyResolver.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -207,6 +212,7 @@
     <Compile Include="Models\TutorialCategoryModel.cs" />
     <Compile Include="Models\TutorialModel.cs" />
     <Compile Include="Models\TutorialModelList.cs" />
+    <Compile Include="MVCDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -304,8 +310,8 @@
     <Content Include="opensearchdescription.xml" />
     <Content Include="RecaptchaNet.ReadMe.txt" />
     <Content Include="Scripts\application.js" />
-    <Content Include="Scripts\bootrap\bootstrap.js" />
-    <Content Include="Scripts\bootrap\bootstrap.min.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.js" />
+    <Content Include="Scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Scripts\custom_easing.js" />
     <Content Include="Scripts\games\picShuffle\picShuffle.js" />
     <Content Include="Content\font-awesome\font\fontawesome-webfont.eot" />
@@ -367,10 +373,6 @@
     <Content Include="Scripts\md5.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
-    <Content Include="Scripts\require\productService.js" />
-    <Content Include="Scripts\require\product.js" />
-    <Content Include="Scripts\require-config.js" />
-    <Content Include="Scripts\require\require.js" />
     <Content Include="Scripts\syntaxhighlighter\lan\shBrushCSharp.js" />
     <Content Include="Scripts\syntaxhighlighter\lan\shBrushCss.js" />
     <Content Include="Scripts\syntaxhighlighter\lan\shBrushJScript.js" />
@@ -479,6 +481,9 @@
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
     <Content Include="Views\Archive\Index.cshtml" />
+    <Content Include="Views\Shared\_ngLayout.cshtml" />
+    <Content Include="Views\Shared\_MetaPartial.cshtml" />
+    <Content Include="Views\Shared\_ngHeaderPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -558,6 +563,7 @@
   <ItemGroup>
     <Content Include="WebConnectionString.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

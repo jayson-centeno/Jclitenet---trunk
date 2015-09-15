@@ -18,12 +18,20 @@ namespace CoreFramework4.Utility
             scriptBundle.Include("~/Scripts/jquery.validate.unobtrusive.min.js");
             scriptBundle.Include("~/Scripts/jquery.unobtrusive-ajax.min.js");
             scriptBundle.Include("~/Scripts/application.js");
+
+            scriptBundle.Include("~/Scripts/bootstrap/bootstrap.js");
             bundles.Add(scriptBundle);
 
             var cssBundles = new StyleBundle("~/content/css");
             cssBundles.Include("~/Content/Reset.css");
             cssBundles.Include("~/Content/Site.css");
             bundles.Add(cssBundles);
+
+
+            var bootstrap = new StyleBundle("~/content/bootstrap");
+            bootstrap.Include("~/Content/bootstrap-responsive.css");
+            bootstrap.Include("~/Content/bootstrap.css");
+            bundles.Add(bootstrap);
 
             var jqueryUiCssBundles = new StyleBundle("~/content/themes/base/css");
             jqueryUiCssBundles.Include("~/Content/themes/base/css")
@@ -41,9 +49,9 @@ namespace CoreFramework4.Utility
                                "~/Content/themes/base/jquery.ui.theme.css");
             bundles.Add(jqueryUiCssBundles);
 
-            //var fontAwesome = new StyleBundle("~/content/font-awesome/css");
-            //fontAwesome.Include("~/Content/font-awesome/css/font-awesome.min.css");
-            //bundles.Add(fontAwesome);
+            var fontAwesome = new StyleBundle("~/content/font-awesome/css");
+            fontAwesome.Include("~/Content/font-awesome/css/font-awesome.min.css");
+            bundles.Add(fontAwesome);
 
         }
     }

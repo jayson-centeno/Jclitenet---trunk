@@ -14,6 +14,13 @@ namespace jclitenet
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+              "PorfolioWizard", // Route name
+              "portfolio-wizard", // URL with parameters
+                new { controller = "Home", action = "MyPortfolio", type = UrlParameter.Optional },
+                new[] { "jclitenet.Controllers" }
+            );
+
+            routes.MapRoute(
               "Development", // Route name
               "Tutorial/{type}", // URL with parameters
                 new { controller = "Tutorial", action = "Index", type = UrlParameter.Optional },

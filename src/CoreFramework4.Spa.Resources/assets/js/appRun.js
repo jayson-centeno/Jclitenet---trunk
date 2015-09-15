@@ -1,28 +1,29 @@
-﻿define([
-    'app',
-    'baseService'
+﻿define(['app'
+    , 'authenticationService'
+    , 'app-constants'
 ], function (app) {
 
-    return app.run(['$rootScope', 'BaseService', function ($rootScope, BaseService) {
+    return app.run(['$rootScope', '$state', 'AuthenticationService', 'APP_CONST',
 
-        $rootScope.page = {
-            setTitle: function (title) {
-                this.title = title;
-            },
+    function ($rootScope, $state, authenticationService, APP_CONST) {
 
-            setClass: function (cssClass) {
-                this.cssClass = cssClass;
+            console.log('run');
+
+            $rootScope.page = {
+                setTitle: function (title) {
+                    this.title = title;
+                },
             }
-        }
 
-        $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
+            $rootScope.$on('$locationChangeSuccess', function () {
 
-            $rootScope.page.setTitle(current.$$route.title || 'Default Title');
-            $rootScope.page.setClass(current.$$route.cssClass || 'page');
+                console.log('location change success');
 
-            $rootScope.Profile = new BaseService.Profile();
+                if (!authenticationService.isAuthenticated())
+                                $state.go(APP_CONST.state.login);
 
-        });
+            });
 
-    }]);
+        }]);
+
 });

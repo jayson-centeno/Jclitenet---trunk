@@ -1,16 +1,20 @@
-﻿define(['angular', 'moduleController', 'tutorialService'], function (ng, moduleController) {
+﻿define(['angular', 'moduleController', "underscore"], function (ng, moduleController, _) {
 
     'use strict';
 
-    return moduleController.controller("TutorialController", ['$scope', '$routeParams', '$location', 'TutorialService', '$q', function ($scope, $routeParams, $location, TutorialService, $q) {
+    return moduleController.controller("TutorialController", ['$scope', '$stateParams', '$location', 'TutorialService', '$q',
+
+    function ($scope, $stateParams, $location, TutorialService, $q) {
         
         function LoadData() {
             TutorialService.getAll().then(function (data) {
-                $scope.model = data;
+                $scope.model = _.find(data, function (obj) {
+                    return obj.Id === parseInt($stateParams.id)
+                });
             })
         }
 
-        if (typeof $routeParams.id !== 'undefined') {
+        if (typeof $stateParams.id !== 'undefined') {
 
             $scope.refresh = function () {
                 LoadData();
@@ -19,7 +23,7 @@
             $scope.update = function () {
 
                 TutorialService
-                    .update({ id: $routeParams.id }, $scope.model)
+                    .update({ id: $stateParams.id }, $scope.model)
                     .$promise
                     .then(function () {
                         //success

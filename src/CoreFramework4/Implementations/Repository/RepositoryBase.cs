@@ -3,6 +3,9 @@ using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using CoreFramework4.Infrastructure.Repository;
+using System.Data.Entity;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace CoreFramework4.Implementations.Repository
 {
@@ -27,7 +30,7 @@ namespace CoreFramework4.Implementations.Repository
             return _dbManager.Set<TEntity>();
         }
 
-        public DbQuery<T> GetQuery<T>() where T :class
+        public DbQuery<T> GetQuery<T>() where T : class
         {
             return _dbManager.Set<T>();
         }
@@ -37,9 +40,19 @@ namespace CoreFramework4.Implementations.Repository
             return GetQuery();
         }
 
+        public IList<TEntity> GetAllList()
+        {
+            return GetQuery().ToList();
+        }
+
         public IQueryable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
         {
             return GetQuery().Where(predicate);
+        }
+
+        public IList<TEntity> FindList(Expression<Func<TEntity, bool>> predicate)
+        {
+            return GetQuery().Where(predicate).ToList();
         }
 
         public TEntity Single(Expression<Func<TEntity, bool>> predicate) 
@@ -93,5 +106,43 @@ namespace CoreFramework4.Implementations.Repository
             GC.SuppressFinalize(this);
         }
 
+        #region Async
+
+        public async Task<IList<TEntity>> GetAllAsyncList()
+        {
+            return await GetAll().ToListAsync();
+        }
+
+        public async Task<IList<TEntity>> FindAsyncList(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await GetQuery().Where(predicate).ToListAsync();
+        }
+
+        public async Task<TEntity> SingleAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await GetQuery().SingleOrDefaultAsync(predicate);
+        }
+
+        public async Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await GetQuery().FirstOrDefaultAsync(predicate);
+        }
+
+        public async Task<TEntity> GetAsync(int id)
+        {
+            return await _dbManager.Set<TEntity>().FindAsync(id);
+        }
+
+        public async Task<TEntity> GetAsync(Guid id)
+        {
+            return await _dbManager.Set<TEntity>().FindAsync(id);
+        }
+
+        public async void SaveChangesAsync()
+        {
+            await _dbManager.SaveChangesAsync();
+        }
+
+        #endregion
     }
 }

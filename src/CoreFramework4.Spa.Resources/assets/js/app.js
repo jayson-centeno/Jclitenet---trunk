@@ -1,11 +1,15 @@
 ﻿define(['angular'
-    , 'angularRoute'
+    , 'angularUIRoute'
     , 'angularCookies'
     , 'angularResource'
     , 'angularAnimate'
+    , 'angularMessages',
     , 'moduleController'
     , 'moduleService'
 ],
     function (ng) {
-        return ng.module("spaweb", ['spaweb.controllers', 'spaweb.services', 'ngRoute', 'ngCookies', 'ngResource', 'ngAnimate']);
+
+        console.log('app loaded');
+
+        return ng.module("spaweb", ['ngCookies', 'ngResource', 'ngAnimate', 'ui.router', 'spaweb.controllers', 'spaweb.services']);
 });

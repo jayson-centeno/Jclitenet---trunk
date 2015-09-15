@@ -1,14 +1,12 @@
-﻿<div>
+﻿<h1>Home Page</h1>
 
-    <ul data-ng-repeat="tutorial in model">
-        <li>
-            <a ng-href="#/tutorial/{{tutorial.Id}}">{{tutorial.Description}}</a>
-            <button type="button" ng-click="delete(tutorial)">Delete</button>
-        </li>
-    </ul>
+<h2>Tutorials</h2>
 
-    <a ng-href="#/createtutorial">Create Tutorials</a>
-
-    <a href="#/login">Login</a>
-
+<div ui-view="tutorials">
 </div>
+
+<div ui-view="tutorials">
+</div>
+
+<a ui-sref="#/createtutorial">Create Tutorials</a>
+<a ui-sref="#/login">Login</a>

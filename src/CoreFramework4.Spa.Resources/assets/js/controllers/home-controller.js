@@ -4,6 +4,8 @@
 
     return moduleController.controller('HomeController', ['$scope', 'TutorialService', function ($scope, TutorialService) {
 
+        console.log('HomeController');
+
         function LoadTutorials() {
             TutorialService.getAll().then(function (data) {
                 $scope.model = data;

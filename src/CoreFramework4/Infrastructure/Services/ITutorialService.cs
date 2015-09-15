@@ -9,8 +9,8 @@ namespace CoreFramework4.Infrastructure.Services
 {
     public interface ITutorialService : IService
     {
-        IEnumerable<Tutorial> GetAllTutorialWithCategoryWithComments { get; }
-        IEnumerable<Tutorial> GetAllTutorial { get; }
-        IEnumerable<Tutorial> GetAllTutorialWithCategory { get; }
+        Task<IEnumerable<Tutorial>> GetAllTutorialWithCategoryWithCommentsAsync(int count = 0);
+        IEnumerable<Tutorial> GetAllTutorial();
+        IEnumerable<Tutorial> GetAllTutorialWithCategory();
     }
 }

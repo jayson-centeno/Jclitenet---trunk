@@ -22,7 +22,8 @@ namespace CoreFramework4
             });
 
             ObjectFactory.Configure(cfg => cfg.AddRegistry(new DomainRegistry()));
-           // ObjectFactory.Configure(cfg => cfg.AddRegistry(new ServiceRegistry()));
+            ObjectFactory.Configure(cfg => cfg.AddRegistry(new ControllerRegistry()));
+            //ObjectFactory.Configure(cfg => cfg.AddRegistry(new ServiceRegistry()));
         }
     }
 }

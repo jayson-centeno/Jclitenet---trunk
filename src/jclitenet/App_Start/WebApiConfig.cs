@@ -6,6 +6,7 @@ using System.Web.Http;
 namespace jclitenet
 {
     using Controllers.Api;
+    using System.Web.Mvc;
 
     public static class WebApiConfig
     {
@@ -18,9 +19,21 @@ namespace jclitenet
             );
 
             config.Routes.MapHttpRoute(
+                name: "Authentication",
+                routeTemplate: "{action}/{email}/{password}",
+                defaults: new
+                {
+                    controller = GetFriendlyControllerName(typeof(AppController)),
+                    action = "Authenticate"
+                }
+            );
+                
+            config.Routes.MapHttpRoute(
                 name: "App Api",
                 routeTemplate: "app/{action}",
-                defaults: new { controller = GetFriendlyControllerName(typeof(AppController)) });
+                defaults: new { controller = GetFriendlyControllerName(typeof(AppController)) }
+            );
+
         }
 
         private static string GetFriendlyControllerName(Type controller)

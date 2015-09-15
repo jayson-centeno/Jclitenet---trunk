@@ -9,7 +9,7 @@ using CoreFramework4;
 
 namespace CoreFramework4.Implementations.Services
 {
-    public class AuthenticationService: IAuthenticationService
+    public class AuthenticationService : IAuthenticationService
     {
         private IUserRepository _userRepository;
 

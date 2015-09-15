@@ -1,6 +1,7 @@
 ﻿using System;
 using StructureMap;
 using CoreFramework4.Infrastructure;
+using System.Collections;
 
 namespace CoreFramework4
 {
@@ -29,6 +30,11 @@ namespace CoreFramework4
         public void Reset()
         {
             ObjectFactory.ResetDefaults();
+        }
+
+        public IList GetInstances(Type type)
+        {
+            return ObjectFactory.GetAllInstances(type);
         }
     }
 }

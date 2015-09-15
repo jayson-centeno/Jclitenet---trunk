@@ -61,7 +61,7 @@ header, #header { position: relative; margin-bottom: 20px; color: #000; padding:
 #main { padding: 10px 10px 25px 10px; }
 h2.title { text-shadow: 1px 1px 1px #efefef; }
 .text-fade { color: #A4B0BC; }
-.center-layout { width: 65%; margin: 0px auto 0px auto; }
+.center-layout { width: 70%; margin: 0px auto 0px auto; }
 .text-shadow { text-shadow: 1px 1px 1px #ccc; }
 
 .top-container { width: 100%; height: 35px; border-bottom: solid 1px #707070; }
@@ -71,6 +71,8 @@ h2.title { text-shadow: 1px 1px 1px #efefef; }
 #top-container-about a { color: #999393; text-shadow: 1px 1px 1px #111; }
 #top-container-about i { margin-right:3px; }
 
+#content { width: 70%;  }
+#side_menu { width:23% }
 #content, #content-admin { display: inline-block; margin: 10px 5px 0px 0px; padding: 10px 10px 30px; min-height: 300px; }
 #content-admin { width: 97%; }
 
@@ -296,49 +298,41 @@ pre { border: dashed 1px #000; color: black; line-height: 1.1em; padding: 1em; b
 .captcha-warning { font-size:1.3em; color:#777 }
 
 /* Large screens ----------- */
-@media only screen and (min-width : 1824px) {
-    #content { width: 71% !important;  }
-    #side_menu { width:24.7% !important }
+@media only screen and (max-width : 1824px) {
     #logindisplay { width:233px; right:20%; }
 }
 
-@media only screen and (min-width : 1224px) {
-    #content { width: 71% }
-    #side_menu { width:24% }
+@media only screen and (max-width : 1224px) {
+    #content { width: 70%;  }
+    #side_menu { width:22% }
     #logindisplay { width:233px; right:20%; }
 }
 
-@media only screen and (min-width : 1024px) {
-    #content { width: 71% }
-    #side_menu { width:23.4%}
+@media only screen and (max-width : 1024px) {
+    #logindisplay { width:233px; right:20%; }
+    #content { width: 100%;  }
+    #side_menu { width:100% }
+}
+
+@media only screen and (max-width : 800px) {
     #logindisplay { width:233px; right:20%; }
 }
 
-@media only screen and (min-width : 800px) {
-    #content { width: 71% }
-    #side_menu { width:23.2% }
+@media only screen and (max-width : 700px) {
     #logindisplay { width:233px; right:20%; }
 }
 
-@media only screen and (min-width : 700px) {
-    #content { width: 71% }
-    #side_menu { width:23.1% }
+@media only screen and (max-width : 600px) {
     #logindisplay { width:233px; right:20%; }
 }
 
-@media only screen and (min-width : 600px) {
-    #content { width: 96% }
-    #side_menu { width:96% }
-    #logindisplay { width:233px; right:20%; }
-}
-
-/* iPads (portrait and landscape) ----------- */
+/* iPads (portrait and landscape) ----------- 
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
     #content { width: 100%; }
     #side_menu { width: 100%; }
     #menu, #advertisement { display:block }
     #logindisplay { width:233px; right:20%; }
-}
+}*/
 
 /* Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {

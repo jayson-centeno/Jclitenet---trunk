@@ -1,10 +1,19 @@
 ﻿'use strict';
 
-define(['angular'], function (ng) {
+define(['angular' , 'app'], function (ng, app) {
 
-    ng.module("spaweb")
-      .constant('APP_CONST', {
-          url: { tutorials: '/app/getalltutorials' }
-      });
+    app.constant('APP_CONST', {
+        url: {
+            tutorials: '/app/getalltutorials',
+            authentication: '/authenticate'
+        },
+        state: {
+            login : "login",
+            home : "index"
+        },
+        auth : {
+            name : 'default'
+        }
+    });
 
 })

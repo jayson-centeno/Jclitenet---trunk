@@ -7,6 +7,7 @@ using CoreFramework4.Infrastructure.Repository;
 using CoreFramework4.Infrastructure.Services;
 using CoreFramework4.Model;
 using CoreFramework4.Tool;
+using System.Data.Entity;
 
 namespace CoreFramework4.Implementations.Services
 {
@@ -19,64 +20,47 @@ namespace CoreFramework4.Implementations.Services
             _tutorialRepository = tutorialRepository;
         }
 
-        public IEnumerable<Tutorial> GetAllTutorialWithCategoryWithComments
+        public async Task<IEnumerable<Tutorial>> GetAllTutorialWithCategoryWithCommentsAsync(int count = 0)
         {
-            get
-            {
-                string key = "ALLTUTORIALSWITHCOMMENTS";
-                var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
-                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
-                if (lst == null || lst.Count() == 0)
-                {
-                    lst = _tutorialRepository.GetQuery()
-                                             .Include("TutorialCategory")
-                                             .Include("Comments")
-                                             .ToList();
-
-                    applicationCachingServices.AddItem(key, lst, 5);
-                }
-
-                return lst;
-            }
+            return await _tutorialRepository.GetQuery()
+                                            .Include("TutorialCategory")
+                                            .Include("Comments")
+                                            .Take(count)
+                                            .OrderBy(x => Guid.NewGuid())
+                                            .ToListAsync();
         }
 
-        public IEnumerable<Tutorial> GetAllTutorial
+        public IEnumerable<Tutorial> GetAllTutorial()
         {
-            get
+            string key = "ALLTUTORIALS";
+            var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
+            var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
+            if (lst == null || lst.Count() == 0)
             {
-                string key = "ALLTUTORIALS";
-                var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
-                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
-                if (lst == null || lst.Count() == 0)
-                {
-                    lst = _tutorialRepository.GetQuery()
-                                             .ToList();
+                lst = _tutorialRepository.GetQuery()
+                                            .ToList();
 
-                    applicationCachingServices.AddItem(key, lst, 5);
-                }
-
-                return lst;
+                applicationCachingServices.AddItem(key, lst, 5);
             }
+
+            return lst;
         }
 
-        public IEnumerable<Tutorial> GetAllTutorialWithCategory
+        public IEnumerable<Tutorial> GetAllTutorialWithCategory()
         {
-            get
+            string key = "ALLTUTORIALSWITHCATEGORY";
+            var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
+            var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
+            if (lst == null || lst.Count() == 0)
             {
-                string key = "ALLTUTORIALSWITHCATEGORY";
-                var applicationCachingServices = CachingFactory.ApplicationCachingEngineInstance;
-                var lst = applicationCachingServices.GetItem<IEnumerable<Tutorial>>(key);
-                if (lst == null || lst.Count() == 0)
-                {
-                    lst = _tutorialRepository.GetQuery()
-                                             .Include("TutorialCategory")
-                                             .ToList();
+                lst = _tutorialRepository.GetQuery()
+                                            .Include("TutorialCategory")
+                                            .ToList();
 
-                    applicationCachingServices.AddItem(key, lst, 5);
-                }
-
-                return lst;
+                applicationCachingServices.AddItem(key, lst, 5);
             }
+
+            return lst;
         }
     }
 }

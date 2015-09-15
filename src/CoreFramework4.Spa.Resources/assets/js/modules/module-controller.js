@@ -1,5 +1,9 @@
 ﻿'use strict';
 
 define(['angular'], function (ng) {
-    return ng.module('spaweb.controllers', ['ngAnimate']);
+
+    console.log('spaweb.controllers');
+
+    return ng.module('spaweb.controllers', []);
+    //return ng.module('spaweb.controllers', []);
 })

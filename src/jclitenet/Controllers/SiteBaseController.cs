@@ -10,6 +10,7 @@ using jclitenet.Models;
 using CoreFramework4.Infrastructure.Services;
 using CoreFramework4.Infrastructure.Repository;
 using CoreFramework4;
+using System.Threading.Tasks;
 
 namespace jclitenet.Controllers
 {
@@ -53,17 +54,15 @@ namespace jclitenet.Controllers
         {
             get
             {
-                return ServiceFactory.GetInstance<IAlbumService>()
-                                     .GetAllAlbum()
-                                     .Select(
-                                        a => 
-                                            new SideMenuModelItem() 
-                                            {
-                                                Posted = a.DateCreated.Value,
-                                                Title = a.Name,
-                                                ID = a.ID,
-                                                Href = HttpServerTool.ToUrlAction("Album", "PhotoGallery", new {a.ID, name = a.Name.ToSlug() })
-                                            });
+                var albumsTask = Task.Run(() => ServiceFactory.GetInstance<IAlbumService>().GetAllAlbumAsync());
+                return albumsTask.Result.Select(a =>
+                                        new SideMenuModelItem()
+                                        {
+                                            Posted = a.DateCreated.Value,
+                                            Title = a.Name,
+                                            ID = a.ID,
+                                            Href = HttpServerTool.ToUrlAction("Album", "PhotoGallery", new { a.ID, name = a.Name.ToSlug() })
+                                        });
             }
         }
 
@@ -71,18 +70,17 @@ namespace jclitenet.Controllers
         {
             get
             {
-                return ServiceFactory.GetInstance<ITutorialService>()
-                                     .GetAllTutorialWithCategoryWithComments
-                                     .Select(
-                                        a => 
-                                            new SideMenuModelItem {
-                                                Posted = a.DateCreated.Value,
-                                                Title = a.Name,
-                                                ID = a.ID,
-                                                Href = HttpServerTool.ToUrlAction("View", "Tutorial", new { cat = a.TutorialCategory.ID, id = a.ID, name = a.Name.ToSlug() })
-                                            })
-                                     .OrderBy(x => Guid.NewGuid())
-                                     .Take(5);
+                var task = Task.Run(() => ServiceFactory.GetInstance<ITutorialService>().GetAllTutorialWithCategoryWithCommentsAsync(5));
+                return task.Result.Select(
+                            a =>
+                                new SideMenuModelItem
+                                {
+                                    Posted = a.DateCreated.Value,
+                                    Title = a.Name,
+                                    ID = a.ID,
+                                    Href = HttpServerTool.ToUrlAction("View", "Tutorial", new { cat = a.TutorialCategory.ID, id = a.ID, name = a.Name.ToSlug() })
+                                })
+                            .OrderBy(x => Guid.NewGuid());
             }
         }
 
@@ -125,7 +123,7 @@ namespace jclitenet.Controllers
             get
             {
                 var x = ServiceFactory.GetInstance<ITutorialService>()
-                                     .GetAllTutorial
+                                     .GetAllTutorial()
                                      .GroupBy(g => g.DateCreated.Value.Date)
                                      .Select(g => new { title = g.Key.Date.ToString("MMMM yyyy"), 
                                                         year = g.Key.Date.ToString("yyyy"), 

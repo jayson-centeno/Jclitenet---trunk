@@ -2,23 +2,29 @@
 
     'use strict';
 
-    return moduleController.controller('LoginController', ['$scope', '$location', 'AuthenticationService', function ($scope, $location, AuthenticationService) {
-        
-        $scope.login = function () {
+    return moduleController.controller('LoginController', ['$state', 'AuthenticationService', 'APP_CONST',
 
-            var email = $scope.model.email;
-            var password = $scope.model.password;
+    function ($state, _authenticationService, APP_CONST) {
 
-            AuthenticationService
-                .authenticate(email, password)
-                .success(function () {
+        console.log('LoginController loaded');
 
-                    $location.path("/");
+        var vm = this;
+        vm.login = login;
 
-                }).error(function (error) {
+        (function init() {
+            _authenticationService.clearCredentials();
+        })();
 
-                    alert('error');
+        function login() {
 
+            vm.dataLoading = true;
+
+            _authenticationService
+                .authenticate(vm.email, vm.password)
+                .then(function (response) {
+                    if (response)
+                        $state.go(APP_CONST.state.home);
+                    else vm.dataLoading = false;
                 });
 
         }

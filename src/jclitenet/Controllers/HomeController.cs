@@ -4,6 +4,7 @@ using CoreFramework4.Infrastructure.Repository;
 using CoreFramework4.Infrastructure.Services;
 using jclitenet.Models;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web.Mvc;
 
 namespace jclitenet.Controllers
@@ -77,15 +78,16 @@ namespace jclitenet.Controllers
             return View(blogs);
         }
 
-        public ActionResult SiteLog()
+        public async Task<ActionResult> SiteLog()
         {
-            return View(_changeLogRepository.GetAll()
-                                            .Select(m => new ChangeLogModel() {
-                                                        DateCreated = m.DateCreated,
-                                                        Description = m.Description
-                                                    })
-                                            .OrderByDescending(c => c.DateCreated)
-            );
+            var lst = await _changeLogRepository.GetAllAsyncList();
+            var vm = lst.Select(m => new ChangeLogModel()
+                        {
+                            DateCreated = m.DateCreated,
+                            Description = m.Description
+                        }).OrderByDescending(c => c.DateCreated);
+
+            return View(vm);
         }
 
         public ActionResult MyPortfolio()

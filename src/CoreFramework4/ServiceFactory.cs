@@ -1,5 +1,7 @@
 ﻿using System;
 using CoreFramework4.Infrastructure;
+using System.Collections.Generic;
+using System.Collections;
 
 namespace CoreFramework4
 {
@@ -25,6 +27,11 @@ namespace CoreFramework4
         public static object GetInstance(Type type)
         {
             return _instance.GetInstance(type);
+        }
+
+        public static IList GetInstances(Type type)
+        {
+            return _instance.GetInstances(type);
         }
 
         public static T GetInstance<T>()

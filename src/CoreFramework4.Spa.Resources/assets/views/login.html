@@ -1,15 +1,33 @@
-﻿<div>
+﻿<form name="form" ng-submit="vm.login()" role="form" novalidate>
+    <div class="login box centered">
+        <div class="form-horizontal">
+            <div class="form-group" ng-class="{ 'has-error': form.email.$dirty && (form.email.$error.pattern || form.email.$error.required) }">
+                <div class="col-sm-12">
+                    <input type="email" name="email" ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/"
+                           class="form-control"
+                           placeholder="Email Address" ng-model="vm.email" required />
 
-    <input type="text" ng-model="model.email" />
-    <input type="password" ng-model="model.password" />
-
-    <br />
-    <br />
-
-    <button type="button" ng-click="login()">Login</button>
-
-    <a href="/" >Back to home</a>
-
-    <br />
-
-</div>
+                    <div ng-messages="form.email.$error" ng-show="form.email.$error.pattern" class="error" ng-if="form.$submitted" role="alert">
+                        <div ng-message="pattern">Email is Invalid</div>
+                    </div>
+                    <div ng-messages="form.email.$error" ng-show="form.email.$error.required" class="error" ng-if="form.$submitted" role="alert">
+                        <div ng-message="required">Email is Required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error': form.password.$dirty && form.password.$error.required }">
+                <div class="col-sm-12">
+                    <input type="password" name="password" class="form-control" placeholder="Password" ng-model="vm.password" required />
+                    <div ng-messages="form.password.$error" ng-show="form.password.$error.required" class="error" ng-if="form.$submitted" role="alert">
+                        <div ng-message="required">Password is required</div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" ng-disabled="vm.dataLoading" class="btn btn-success spacer">Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

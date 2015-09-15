@@ -103,7 +103,7 @@
         />
 
     <CallTarget Targets="DeployFiles" />
-    <CallTarget Targets="PublishFiles" Condition="'$(DeployFolder)*.*' != ''" />
+    <!--<CallTarget Targets="PublishFiles" Condition="'$(DeployFolder)*.*' != ''" />-->
                 
   </Target>
 
@@ -112,12 +112,12 @@
   <Target Name="CleanPublish">
 
     <ItemGroup>
-      <FilesToClean Include="$(PublishFolder)\**\*"/>
-      <Directories Include="$([System.IO.Directory]::GetDirectories('$(PublishFolder)', '*', System.IO.SearchOption.AllDirectories))"
-                   Exclude="$(PublishFolder)"/>
+      <!--<FilesToClean Include="$(PublishFolder)\**\*"/>-->
+      <!--<Directories Include="$([System.IO.Directory]::GetDirectories('$(PublishFolder)', '*', System.IO.SearchOption.AllDirectories))"
+                   Exclude="$(PublishFolder)"/>-->
     </ItemGroup>
     
-    <RemoveDir Directories="@(Directories)" />
+    <!--<RemoveDir Directories="@(Directories)" />-->
     <RemoveDir Directories="$(BuildOutput)" />
     <!--<RemoveDir Directories="$(DeployFolder)" />-->
 

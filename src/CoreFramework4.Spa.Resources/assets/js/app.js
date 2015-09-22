@@ -6,10 +6,11 @@
     , 'angularMessages',
     , 'moduleController'
     , 'moduleService'
+    , 'moduleDirective'
 ],
     function (ng) {
 
         console.log('app loaded');
 
-        return ng.module("spaweb", ['ngCookies', 'ngResource', 'ngAnimate', 'ui.router', 'spaweb.controllers', 'spaweb.services']);
+        return ng.module("spaweb", ['ngCookies', 'ngResource', 'ngAnimate', 'ui.router', 'spaweb.controllers', 'spaweb.services', 'spaweb.directives']);
 });

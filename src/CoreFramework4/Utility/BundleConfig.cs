@@ -18,15 +18,16 @@ namespace CoreFramework4.Utility
             scriptBundle.Include("~/Scripts/jquery.validate.unobtrusive.min.js");
             scriptBundle.Include("~/Scripts/jquery.unobtrusive-ajax.min.js");
             scriptBundle.Include("~/Scripts/application.js");
-
-            scriptBundle.Include("~/Scripts/bootstrap/bootstrap.js");
             bundles.Add(scriptBundle);
+
+            var bootStrapBundle = new ScriptBundle("~/bundles/bootstrap");
+            bootStrapBundle.Include("~/Scripts/bootstrap/bootstrap.js");
+            bundles.Add(bootStrapBundle);
 
             var cssBundles = new StyleBundle("~/content/css");
             cssBundles.Include("~/Content/Reset.css");
             cssBundles.Include("~/Content/Site.css");
             bundles.Add(cssBundles);
-
 
             var bootstrap = new StyleBundle("~/content/bootstrap");
             bootstrap.Include("~/Content/bootstrap-responsive.css");

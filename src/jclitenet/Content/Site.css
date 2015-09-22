@@ -168,7 +168,7 @@ html #submenu { width: 305px; border: solid 1px #aaa; position: absolute; paddin
 #advertisement { position: relative; height:100px; width: 100%; overflow: hidden; border-radius: 4px 4px 0px 0px; -webkit-border-radius: 4px 4px 0px 0px; -moz-border-radius: 4px 4px 0px 0px; text-align:center; }
 #logo { display: block; text-align: left; width: 188px; height: 72px; background: url(images/jclitenetlogo.png) transparent; background-repeat: no-repeat; margin: 15px 0px 10px 5%; float: left; }
 #logindisplay, #login-content { -moz-box-shadow: 0px 0px 5px 0px #000; -webkit-box-shadow: 0px 0px 5px 0px #000; box-shadow: 0px 0px 5px 0px #000; }
-#logindisplay { height: 20px; display: block; background-color:#000; text-align: right; color: White; border: solid 1px #747373; z-index: 9999; cursor: pointer; border-radius: 0 0 10px 10px; -webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; z-index: 999999; border-top: none; margin-top: 2px; position: absolute; }
+#logindisplay { width:233px; right:20%; height: 20px; display: block; background-color:#000; text-align: right; color: White; border: solid 1px #747373; z-index: 9999; cursor: pointer; border-radius: 0 0 10px 10px; -webkit-border-radius: 0 0 10px 10px; -moz-border-radius: 0 0 10px 10px; z-index: 999999; border-top: none; margin-top: 2px; position: absolute; }
 #login-content { position: absolute; background-color: #000; border: none; top: 0; z-index: 9999999; width: 100%; border-bottom: solid 1px #747373; margin-left: auto; margin-right: auto; padding-bottom: 2px; background: #000 url(images/login-content-bg.png) repeat-x; }
 .user-icon { background: transparent url(images/user_icon_hover.png) no-repeat; width: 15px; height: 15px; float: left; margin-top: -1px; }
 
@@ -305,25 +305,22 @@ pre { border: dashed 1px #000; color: black; line-height: 1.1em; padding: 1em; b
 @media only screen and (max-width : 1224px) {
     #content { width: 70%;  }
     #side_menu { width:22% }
-    #logindisplay { width:233px; right:20%; }
 }
 
 @media only screen and (max-width : 1024px) {
-    #logindisplay { width:233px; right:20%; }
     #content { width: 100%;  }
     #side_menu { width:100% }
 }
 
 @media only screen and (max-width : 800px) {
-    #logindisplay { width:233px; right:20%; }
+
 }
 
 @media only screen and (max-width : 700px) {
-    #logindisplay { width:233px; right:20%; }
 }
 
 @media only screen and (max-width : 600px) {
-    #logindisplay { width:233px; right:20%; }
+
 }
 
 /* iPads (portrait and landscape) ----------- 
@@ -331,7 +328,6 @@ pre { border: dashed 1px #000; color: black; line-height: 1.1em; padding: 1em; b
     #content { width: 100%; }
     #side_menu { width: 100%; }
     #menu, #advertisement { display:block }
-    #logindisplay { width:233px; right:20%; }
 }*/
 
 /* Smartphones (portrait and landscape) ----------- */

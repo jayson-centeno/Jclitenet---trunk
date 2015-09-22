@@ -16,27 +16,23 @@ define([
                 .when('/', {
                     title: 'Home',
                     templateUrl: '../assets/views/index.html',
-                    controller: 'HomeController',
-                    cssClass: 'page-home'
+                    controller: 'HomeController'
                 })
                 .when('/login', {
                     title: 'Login',
                     templateUrl: '../assets/views/login.html',
-                    controller: 'LoginController',
-                    cssClass: 'page-login'
+                    controller: 'LoginController'
                 })
                 //.when('/tutorial/:id/:test', { //implement multiple params
                 .when('/tutorial/:id', {
                     title: 'Update Tutorial',
                     templateUrl: '../assets/views/tutorials/tutorial.html',
-                    controller: 'TutorialController',
-                    cssClass: 'page-edittutorial'
+                    controller: 'TutorialController'
                 })
                 .when('/createtutorial', {
                     title: 'Create Tutorial',
                     templateUrl: '../assets/views/tutorials/createtutorial.html',
-                    controller: 'TutorialController',
-                    cssClass: 'page-createtutorial'
+                    controller: 'TutorialController'
                 })
                 .otherwise({
                     redirectTo: '../assets/views/login.html',

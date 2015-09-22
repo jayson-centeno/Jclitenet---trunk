@@ -5,7 +5,6 @@ define([
     'app',
     'homeController',
     'loginController',
-    'tutorialController'
 ],
 
     function (ng, app) {
@@ -28,16 +27,16 @@ define([
                     controller: 'HomeController',
                     controllerAs: 'vm'
                 })
-                .state('index.home', {
-                    url: '/',
-                    views: {
-                        tutorials: {
-                            templateUrl: '../assets/views/partial/tutorials.html',
-                            controller: 'HomeController',
-                            controllerAs: 'vm'
-                        }
-                    }
-                })
+                //.state('index.home', {
+                //    url: '/',
+                //    views: {
+                //        tutorials: {
+                //            templateUrl: '../assets/views/partial/tutorials.html',
+                //            controller: 'HomeController',
+                //            controllerAs: 'vm'
+                //        }
+                //    }
+                //})
 
                 .state('login', {
                     url: '/login',
@@ -46,12 +45,12 @@ define([
                     controllerAs: 'vm'
                 })
 
-                .state('tutorial', {
-                     url: '/tutorial/:id',
-                     templateUrl: '../assets/views/tutorials/tutorial.html',
-                     controller: 'TutorialController',
-                     controllerAs: 'vm'
-                })
+                //.state('tutorial', {
+                //     url: '/tutorial/:id',
+                //     templateUrl: '../assets/views/tutorials/tutorial.html',
+                //     controller: 'TutorialController',
+                //     controllerAs: 'vm'
+                //})
 
         });
 

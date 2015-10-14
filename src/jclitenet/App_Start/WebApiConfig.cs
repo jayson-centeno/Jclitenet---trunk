@@ -27,11 +27,11 @@ namespace jclitenet
                     action = "Authenticate"
                 }
             );
-                
+
             config.Routes.MapHttpRoute(
                 name: "App Api",
-                routeTemplate: "app/{action}",
-                defaults: new { controller = GetFriendlyControllerName(typeof(AppController)) }
+                routeTemplate: "app/{action}/{id}",
+                defaults: new { controller = GetFriendlyControllerName(typeof(AppController)), id = RouteParameter.Optional }
             );
 
         }

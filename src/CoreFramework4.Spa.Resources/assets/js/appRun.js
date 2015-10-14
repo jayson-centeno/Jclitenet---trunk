@@ -3,9 +3,9 @@
     , 'app-constants'
 ], function (app) {
 
-    return app.run(['$rootScope', '$state', 'AuthenticationService', 'APP_CONST',
+    return app.run(['$rootScope', '$state', '$templateCache', 'AuthenticationService', 'APP_CONST',
 
-    function ($rootScope, $state, authenticationService, APP_CONST) {
+    function ($rootScope, $state, $templateCache, authenticationService, APP_CONST) {
 
             console.log('run');
 

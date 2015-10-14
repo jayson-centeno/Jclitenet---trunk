@@ -105,7 +105,9 @@ namespace CoreFramework4.Implementations.Services
 
         public LogonInfo CurrentUser
         {
-            get { return HttpContext.Current.User.Identity as LogonInfo; }
+            get {
+                return HttpContext.Current.User != null ? HttpContext.Current.User.Identity as LogonInfo : null;
+            }
         }
     }
 }

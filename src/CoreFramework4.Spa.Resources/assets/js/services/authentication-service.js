@@ -45,6 +45,8 @@
             if (wasAuthenticated)
                 WriteToHttpHeader($rootScope.globals.currentUser.authData);
 
+            console.log('Auth Status : ' + wasAuthenticated);
+
             return wasAuthenticated;
         }
 

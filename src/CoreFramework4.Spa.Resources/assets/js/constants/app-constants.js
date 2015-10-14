@@ -5,7 +5,9 @@ define(['angular' , 'app'], function (ng, app) {
     app.constant('APP_CONST', {
         url: {
             tutorials: '/app/getalltutorials',
-            authentication: '/authenticate'
+            authentication: '/authenticate',
+            resumeDetails: '/app/GetResumeDetails',
+            updateResumeIntroduction: '/app/UpdateResumeIntroduction'
         },
         state: {
             login : "login",
@@ -13,6 +15,10 @@ define(['angular' , 'app'], function (ng, app) {
         },
         auth : {
             name : 'default'
+        },
+        profileEditor:
+        { 
+            introduction: "introduction"
         }
     });
 

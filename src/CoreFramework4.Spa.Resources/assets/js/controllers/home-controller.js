@@ -1,4 +1,9 @@
-﻿define(['angular', 'moduleController', 'headerFixed'], function (ng, moduleController) {
+﻿define(['angular', 'moduleController',
+            'headerFixed',
+            'editorSetup',
+            'addressEditor',
+            'introductionEditor',
+            'editorValue'], function (ng, moduleController) {
 
     'use strict';
 

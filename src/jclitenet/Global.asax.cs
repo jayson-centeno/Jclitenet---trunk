@@ -7,6 +7,7 @@ using CoreFramework4.Utility;
 using MvcSiteMapProvider.Web;
 using MvcSiteMapProvider.Web.Html;
 using System;
+using System.Diagnostics.Contracts;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
@@ -65,6 +66,10 @@ namespace jclitenet
                     }
                 }
 
+            }
+            else 
+            {
+                return;
             }
 
             // Avoid IIS7 getting in the middle

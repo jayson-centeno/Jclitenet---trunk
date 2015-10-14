@@ -598,6 +598,10 @@
       <Project>{168cbc76-b061-460f-8ba5-1b8d2127bab2}</Project>
       <Name>CoreFramework4</Name>
     </ProjectReference>
+    <ProjectReference Include="..\jclitenet.Domain.Objects\jclitenet.Domain.Objects.csproj">
+      <Project>{fa561998-fc59-4bf2-80a3-cc8395251393}</Project>
+      <Name>jclitenet.Domain.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

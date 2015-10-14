@@ -122,6 +122,8 @@
     <Compile Include="EF4_1\Model\ChangeLog.cs" />
     <Compile Include="EF4_1\Model\Game.cs" />
     <Compile Include="EF4_1\Model\Photo.cs" />
+    <Compile Include="EF4_1\Model\Resume.cs" />
+    <Compile Include="EF4_1\Model\ResumeDetails.cs" />
     <Compile Include="EF4_1\Model\SiteConfiguration.cs" />
     <Compile Include="EF4_1\Model\Tutorial.cs" />
     <Compile Include="EF4_1\Model\TutorialCategory.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Implementations\Repository\CommentRepository.cs" />
     <Compile Include="Implementations\Repository\GameRepository.cs" />
     <Compile Include="Implementations\Repository\PhotoRepository.cs" />
+    <Compile Include="Implementations\Repository\ResumeRepository.cs" />
     <Compile Include="Implementations\Repository\SiteConfigurationRepository.cs" />
     <Compile Include="Implementations\Repository\TutorialRepository.cs" />
     <Compile Include="Implementations\Repository\UserRepository.cs" />
@@ -141,10 +144,12 @@
     <Compile Include="Implementations\Services\AuthenticationService.cs" />
     <Compile Include="Implementations\Services\CommentService.cs" />
     <Compile Include="Implementations\Services\MailService.cs" />
-    <Compile Include="Implementations\Services\ObjectMappings.cs" />
+    <Compile Include="Implementations\Services\ResumeService.cs" />
     <Compile Include="Implementations\Services\TutorialService.cs" />
     <Compile Include="Infrastructure\Repository\IGameRepository.cs" />
     <Compile Include="Infrastructure\Services\IMailService.cs" />
+    <Compile Include="Infrastructure\Repository\IResumeRepository.cs" />
+    <Compile Include="Infrastructure\Services\IResumeService.cs" />
     <Compile Include="Infrastructure\Services\ISiteConfigurationService.cs" />
     <Compile Include="Implementations\Services\SiteConfigurationService.cs" />
     <Compile Include="Infrastructure\Repository\IChangeLogRepository.cs" />
@@ -178,6 +183,7 @@
     <Compile Include="Implementations\Security\LogonInfo.cs" />
     <Compile Include="EF4_1\Model\SiteSetUpModel.cs" />
     <Compile Include="Mvc\StructureMapControllerFactory.cs" />
+    <Compile Include="ObjectMappings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registry\ControllerRegistry.cs" />
     <Compile Include="Registry\DomainRegistry.cs" />
@@ -208,6 +214,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\jclitenet.Domain.Objects\jclitenet.Domain.Objects.csproj">
+      <Project>{fa561998-fc59-4bf2-80a3-cc8395251393}</Project>
+      <Name>jclitenet.Domain.Objects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

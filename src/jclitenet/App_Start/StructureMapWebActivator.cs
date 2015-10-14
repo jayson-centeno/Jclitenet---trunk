@@ -45,6 +45,9 @@ namespace jclitenet.App_Start
 
             //DependencyResolver.SetResolver(new jclitenet.Resolver.MVCDependencyResolver(ObjectFactory.Container));
             GlobalConfiguration.Configuration.DependencyResolver = new jclitenet.Resolver.DependencyResolver(ObjectFactory.Container);
+
+            CoreFramework4.ObjectMappings.MapDomainObjects();
+
         }
 
         public static void Shutdown() 

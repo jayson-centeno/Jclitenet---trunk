@@ -12,6 +12,7 @@ D:\Jayson\Projects\jclitenet\jclitenet4.0\jclitenet\Trunk\CoreFramework4\obj\Deb
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\CoreFramework4.dll.config
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\CoreFramework4.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\CoreFramework4.pdb
+C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\AutoMapper.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\EntityFramework.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\EntityFramework.SqlServer.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\FluentValidation.dll
@@ -29,6 +30,7 @@ C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\System.Web.Razor.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\System.Web.WebPages.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\AutoMapper.xml
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\EntityFramework.xml
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\EntityFramework.SqlServer.xml
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\FluentValidation.pdb
@@ -62,3 +64,5 @@ C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\tr\FluentValidation.re
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\obj\Debug\CoreFramework4.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\obj\Debug\CoreFramework4.pdb
 C:\Jayson\Projects\jclitenet\src\CoreFramework4\obj\Debug\CoreFramework4.csprojResolveAssemblyReference.cache
+C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\jclitenet.Domain.Objects.dll
+C:\Jayson\Projects\jclitenet\src\CoreFramework4\bin\Debug\jclitenet.Domain.Objects.pdb

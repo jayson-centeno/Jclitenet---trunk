@@ -60,9 +60,14 @@ requirejs.config({
         //services
         "tutorialService": "services/tutorial-service",
         "authenticationService": "services/authentication-service",
+        "resumeService": "services/resume-service",
 
         //directives
-        "headerFixed": "directives/headerFixed",
+        "headerFixed": "directives/header-fixed",
+        "editorSetup": "directives/editor-setup",
+        "editorValue": "directives/editor-value",
+        "addressEditor": "directives/address-editor",
+        "introductionEditor": "directives/introduction-editor",
 
         //utilities
         "util": "utilities/utilities",

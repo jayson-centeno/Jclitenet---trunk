@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <RootResourceDir>$(SolutionDir)\..\..\http\assets\</RootResourceDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -58,7 +59,11 @@
     <Content Include="assets\js\controllers\home-controller.js" />
     <Content Include="assets\js\controllers\login-controller.js" />
     <Content Include="assets\js\controllers\tutorial-controller.js" />
-    <Content Include="assets\js\directives\headerFixed.js" />
+    <Content Include="assets\js\directives\address-editor.js" />
+    <Content Include="assets\js\directives\editor-setup.js" />
+    <Content Include="assets\js\directives\editor-value.js" />
+    <Content Include="assets\js\directives\header-fixed.js" />
+    <Content Include="assets\js\directives\introduction-editor.js" />
     <Content Include="assets\js\lib\angular\angular-animate.js" />
     <Content Include="assets\js\lib\angular\angular-animate.min.js" />
     <Content Include="assets\js\lib\angular\angular-cookies.js" />
@@ -96,10 +101,16 @@
     <Content Include="assets\js\modules\module-service.js" />
     <Content Include="assets\js\routes.js" />
     <Content Include="assets\js\services\authentication-service.js" />
+    <Content Include="assets\js\services\resume-service.js" />
     <Content Include="assets\js\services\tutorial-service.js" />
     <Content Include="assets\js\utilities\utilities.js" />
     <Content Include="assets\views\index.html" />
     <Content Include="assets\views\login.html" />
+    <Content Include="assets\views\partial\editor-popover-content.html" />
+    <Content Include="assets\views\partial\editor-setup.html" />
+    <Content Include="assets\views\partial\address-editor.html" />
+    <Content Include="assets\views\partial\editor-popover.html" />
+    <Content Include="assets\views\partial\introduction-editor.html" />
     <Content Include="assets\views\tutorials\createtutorial.html" />
     <Content Include="assets\views\partial\tutorials.html" />
     <Content Include="assets\views\tutorials\tutorial.html" />
@@ -145,7 +156,9 @@
   <Target Name="AfterBuild">
     <ItemGroup>
       <ResourceStuff Include=".\**\*.json;.\**\*.html;.\**\*.jpg;.\**\*.gif;.\**\*.png;.\**\*.js;.\**\*.map;.\**\*.css;.\**\*.eot;.\**\*.svg;.\**\*.ttf;.\**\*.woff;.\**\*.config;.\**\*.json;.\**\*.html;" />
+      <RemoveRootResourceDir Include="$([System.IO.Directory]::GetDirectories('$RootResourceDir')" />
     </ItemGroup>
+    <RemoveDir Directories="@RemoveRootResourceDir" ContinueOnError="true" />
     <Copy SourceFiles="@(ResourceStuff)" DestinationFolder="$(SolutionDir)\..\..\http\%(RecursiveDir)">
     </Copy>
   </Target>

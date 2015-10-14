@@ -4,6 +4,7 @@ using System.Configuration;
 using System.Data.Entity.Migrations;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using CoreFramework4.EF4_1.Model;
 
 namespace CoreFramework4
 {
@@ -41,6 +42,9 @@ namespace CoreFramework4
         public DbSet<SiteConfiguration> SiteConfiguration { get; set; }
         public DbSet<Game> Game { get; set; }
 
+        public DbSet<Resume> Resume { get; set; }
+
+        public DbSet<ResumeDetails> ResumeDetail { get; set; }
         private static string GetConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["DefaultConnectionString"].ConnectionString;
@@ -72,6 +76,12 @@ namespace CoreFramework4
                         .HasKey(t => t.ID)
                         .Property(t => t.ID)
                         .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+
+            modelBuilder.Entity<Resume>()
+                        .HasKey(t => t.ID);
+
+            modelBuilder.Entity<ResumeDetails>()
+                        .HasKey(t => t.ID);
 
             //modelBuilder.Entity<TutorialCategory>()
             //    .HasMany(c => c.Tutorials);

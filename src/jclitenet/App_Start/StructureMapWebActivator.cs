@@ -4,8 +4,6 @@ using CoreFramework4.Implementations.Services;
 using CoreFramework4.Infrastructure.Services;
 using CoreFramework4.Migration.Migration;
 using CoreFramework4.Utility;
-using MvcSiteMapProvider.Web;
-using MvcSiteMapProvider.Web.Html;
 using StructureMap;
 using System;
 using System.Web;

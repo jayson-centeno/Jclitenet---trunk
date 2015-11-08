@@ -7,3 +7,7 @@ C:\Jayson\Projects\jclitenet\src\CoreFramework4.Spa.Resources\bin\Debug\CoreFram
 C:\Jayson\Projects\jclitenet\src\CoreFramework4.Spa.Resources\obj\Debug\CoreFramework4.Spa.Resources.dll
 C:\Jayson\Projects\jclitenet\src\CoreFramework4.Spa.Resources\obj\Debug\CoreFramework4.Spa.Resources.pdb
 C:\Jayson\Projects\jclitenet\src\CoreFramework4.Spa.Resources\obj\Debug\CoreFramework4.Spa.Resources.csprojResolveAssemblyReference.cache
+C:\Jayson\Projects\jclitenet latest\src\CoreFramework4.Spa.Resources\bin\Debug\CoreFramework4.Spa.Resources.dll
+C:\Jayson\Projects\jclitenet latest\src\CoreFramework4.Spa.Resources\bin\Debug\CoreFramework4.Spa.Resources.pdb
+C:\Jayson\Projects\jclitenet latest\src\CoreFramework4.Spa.Resources\obj\Debug\CoreFramework4.Spa.Resources.dll
+C:\Jayson\Projects\jclitenet latest\src\CoreFramework4.Spa.Resources\obj\Debug\CoreFramework4.Spa.Resources.pdb

@@ -114,7 +114,6 @@
     <Content Include="assets\views\tutorials\createtutorial.html" />
     <Content Include="assets\views\partial\tutorials.html" />
     <Content Include="assets\views\tutorials\tutorial.html" />
-    <Content Include="Icon.png" />
     <Content Include="Scripts\angular-cookies.js" />
     <Content Include="Scripts\angular-cookies.min.js" />
     <Content Include="Scripts\angular-loader.js" />
@@ -136,7 +135,6 @@
     <None Include="assets\js\lib\angular\angular-touch.min.js.map" />
     <None Include="assets\js\lib\angular\errors.json" />
     <None Include="assets\js\lib\angular\version.json" />
-    <None Include="packages.config" />
     <None Include="Scripts\angular-cookies.min.js.map" />
     <None Include="Scripts\angular-loader.min.js.map" />
     <None Include="Scripts\angular-resource.min.js.map" />
